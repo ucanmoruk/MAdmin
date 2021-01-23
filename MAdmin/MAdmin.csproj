@@ -71,7 +71,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.html" />
-    <Content Include="PageTeklif.aspx" />
+    <Content Include="giris.aspx" />
+    <Content Include="KayitOl.aspx" />
+    <Content Include="NumuneGonder.aspx" />
+    <Content Include="profil.aspx" />
+    <Content Include="Teklif.aspx" />
     <Content Include="Anasayfa.aspx" />
     <Content Include="blank.html" />
     <Content Include="buttons.html" />
@@ -208,6 +212,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="tables.html" />
+    <Content Include="TeklifEkle.aspx" />
     <Content Include="utilities-animation.html" />
     <Content Include="utilities-border.html" />
     <Content Include="utilities-color.html" />
@@ -2066,12 +2071,40 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PageTeklif.aspx.cs">
-      <DependentUpon>PageTeklif.aspx</DependentUpon>
+    <Compile Include="giris.aspx.cs">
+      <DependentUpon>giris.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PageTeklif.aspx.designer.cs">
-      <DependentUpon>PageTeklif.aspx</DependentUpon>
+    <Compile Include="giris.aspx.designer.cs">
+      <DependentUpon>giris.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KayitOl.aspx.cs">
+      <DependentUpon>KayitOl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayitOl.aspx.designer.cs">
+      <DependentUpon>KayitOl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NumuneGonder.aspx.cs">
+      <DependentUpon>NumuneGonder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NumuneGonder.aspx.designer.cs">
+      <DependentUpon>NumuneGonder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profil.aspx.cs">
+      <DependentUpon>profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profil.aspx.designer.cs">
+      <DependentUpon>profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Teklif.aspx.cs">
+      <DependentUpon>Teklif.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teklif.aspx.designer.cs">
+      <DependentUpon>Teklif.aspx</DependentUpon>
     </Compile>
     <Compile Include="Raporlar.aspx.cs">
       <DependentUpon>Raporlar.aspx</DependentUpon>
@@ -2089,6 +2122,13 @@
       <DependentUpon>Anasayfa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeklifEkle.aspx.cs">
+      <DependentUpon>TeklifEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeklifEkle.aspx.designer.cs">
+      <DependentUpon>TeklifEkle.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -2109,6 +2149,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Teklifler\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

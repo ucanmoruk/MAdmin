@@ -1,16 +1,37 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Teklifler.aspx.cs" Inherits="MAdmin.Anasayfa" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Teklif.aspx.cs" Inherits="MAdmin.PageTeklif" %>
+
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Mass | Fiyat Teklifleri</title>
 
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <%--<link href="css/sb-admin-2.min.css" rel="stylesheet">--%>
+    <link href="css/sb-admin-2.css" rel="stylesheet" />
 </head>
+
 <body id="page-top">
     <form id="form1" runat="server">
         <div>
-
-                <!-- Page Wrapper -->
+            
+          
+    <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -34,7 +55,7 @@
             </li>
 
             <li class="nav-item ">
-             <a class="nav-link" href="Numune.aspx"><i class="fas fa-fw fa-flask"></i> Numune Gönder</a></li>
+             <a class="nav-link" href="NumuneGonder.aspx"><i class="fas fa-fw fa-flask"></i> Numune Gönder</a></li>
             
                      
             <li class="nav-item active">                      
@@ -83,7 +104,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <asp:Label ID="Lbl_ad" runat="server" class="mr-2 d-none d-lg-inline text-gray-600 small" Text="Label"></asp:Label>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -92,7 +113,7 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Profil
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -142,85 +163,59 @@
                                 <!-- Card Header - Accordion -->
                                 <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
                                     role="button" aria-expanded="true" aria-controls="collapseCardExample" data-target="#demo">
-                                    <h6 class="m-0 font-weight-bold text-primary">Ürün - Paket Fiyat Teklifleri</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Fiyat Tekliflerim</h6>
                                 </a>
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse show" id="demo">
                                     <div class="card-body">
 
-     <asp:Repeater ID="myRepeater" runat="server" >
-   <HeaderTemplate>
-    <table>
-      <tr>
-        <th>
-          <asp:Label ID="SubConName" Text="SubContractor Name" runat="server"></asp:Label>
-        </th>
-      </tr>
-    </table>
-  </HeaderTemplate>
-  <ItemTemplate>
-    <tr>
-      <td>
-        <asp:Label ID="SubCon" Text='<%# Eval("Aciklama") %>' runat="server"></asp:Label>
-       </td>
-     </tr>
-   </ItemTemplate>
- </asp:Repeater>
-   
-    
+                                        <asp:GridView ID="GridView1" class="table table-bordered" runat="server" AutoGenerateColumns="False">
+                                            <Columns>
+                                                <asp:TemplateField HeaderText="Tarih">
+                                              <ItemTemplate>
+                                                       <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:dd.mm.yyyy}") %>'></asp:Literal>  
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                     <asp:TemplateField  HeaderText="Teklif No">  
+                                                    <ItemTemplate>
+                                                    <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("TeklifNo") %>'></asp:Literal>    
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+                                                
+                                                <asp:TemplateField  HeaderText="Teklifi Veren">  
+                                                    <ItemTemplate>
+                                                    <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("TeklifiVeren") %>'></asp:Literal>    
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+
+                                                    <asp:TemplateField  HeaderText="Durum">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="Btn_Onayla" runat="server" CausesValidation="false" 
+                                                        class="btn btn-success btn-sm" Text="Onayla" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />  
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+
+                                                    <asp:TemplateField  HeaderText="İndir">
+                                                    <ItemTemplate>
+  <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
+                                                        class="btn btn-danger btn-sm" Text="İndir" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />  
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+
+                                            </Columns>
+                                        </asp:GridView>
+
                                     </div>
                                 </div>
                             </div>
                     
 
-                          <!-- Collapsable Card2 -->
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Accordion -->
-                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
-                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">Analiz Bazlı Fiyat Teklifleri</h6>
-                                </a>
-                                <!-- Card Content - Collapse -->
-                                <div class="collapse show" id="collapseCardExample">
-                                    <div class="card-body">
-                             
-                                          <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Analiz Adı</th>
-                                            <th>Metot</th>
-                                            <th>Fiyat</th>
-                                            <th>Birim</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Analiz Adı</th>
-                                            <th>Metot</th>
-                                            <th>Fiyat</th>
-                                            <th>Birim</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Ftalat</td>
-                                            <td>CPSC </td>
-                                            <td>35 </td>
-                                            <td>$</td>
-                                         </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                                                           
-                                  
-                                    </div>
-                                </div>
-                            </div>
-
-
+                         
                   
 
             <!-- Footer -->
@@ -280,6 +275,8 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+
 
 
         </div>

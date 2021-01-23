@@ -10,42 +10,66 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+.welcome {
+    background: url(/img/Welcome.jfif);
+    background-position: center;
+    background-size: cover
+}
 
-.center {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+.logo {
+    width: 70%;
+    height: 70%;
+    margin-bottom:10px;
+}
+
+.logosidebar {
+    width: 70%;
+}
+
+.arkaplan {
+    background-color: #FC4800;
+    background-image: linear-gradient(180deg,#FC4800 10%,#fc0b00 100%);
+    background-size: cover
+}
+
+.giris {
+    background-color: #F3F7F9;
+}
+
+.btn-right{
+    float:right;
 }
 
 :root {
-  --blue: #4e73df;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #e74a3b;
-  --orange: #fd7e14;
-  --yellow: #f6c23e;
-  --green: #1cc88a;
-  --teal: #20c9a6;
-  --cyan: #36b9cc;
-  --white: #fff;
-  --gray: #858796;
-  --gray-dark: #5a5c69;
-  --primary: #4e73df;
-  --secondary: #858796;
-  --success: #1cc88a;
-  --info: #36b9cc;
-  --warning: #f6c23e;
-  --danger: #e74a3b;
-  --light: #f8f9fc;
-  --dark: #5a5c69;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --blue: #4e73df;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #e74a3b;
+    --orange: #fd7e14;
+    --yellow: #f6c23e;
+    --green: #1cc88a;
+    --teal: #20c9a6;
+    --cyan: #36b9cc;
+    --white: #fff;
+    --gray: #858796;
+    --gray-dark: #5a5c69;
+    --primary: #4e73df;
+    --secondary: #858796;
+    --success: #1cc88a;
+    --info: #36b9cc;
+    --warning: #f6c23e;
+    --danger: #e74a3b;
+    --light: #f8f9fc;
+    --dark: #5a5c69;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    /*--font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+    --font-family: 'Montserrat', sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 *,
@@ -67,11 +91,11 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: #858796;
+  color: #000;
   text-align: left;
   background-color: #fff;
 }
@@ -1494,12 +1518,12 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #858796;
+  color: #000;
 }
 
 .table th,
 .table td {
-  padding: 0.75rem;
+  padding: 0.50rem;
   vertical-align: top;
   border-top: 1px solid #e3e6f0;
 }
@@ -1746,7 +1770,7 @@ pre code {
 }
 
 .table .thead-light th {
-  color: #6e707e;
+  color: #000;
   background-color: #eaecf4;
   border-color: #e3e6f0;
 }
@@ -1835,19 +1859,19 @@ pre code {
 }
 
 .form-control {
-  display: block;
-  width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #6e707e;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #d1d3e2;
-  border-radius: 0.35rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ffcea1;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2319,7 +2343,7 @@ textarea.form-control {
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 0.35rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2355,36 +2379,36 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+    color: #fff;
+    background-color: #ff7a00;
+    border-color: #ff7a00;
 }
 
-.btn-primary:hover {
-  color: #fff;
-  background-color: #2e59d9;
-  border-color: #2653d4;
-}
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #000000;
+        border-color: #000000;
+    }
 
-.btn-primary:focus, .btn-primary.focus {
-  color: #fff;
-  background-color: #2e59d9;
-  border-color: #2653d4;
-  box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
-}
+    .btn-primary:focus, .btn-primary.focus {
+        color: #fff;
+        background-color: #ff7a00;
+        border-color: #ff7a00;
+        box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
+    }
 
-.btn-primary.disabled, .btn-primary:disabled {
-  color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
-}
+    .btn-primary.disabled, .btn-primary:disabled {
+        color: #fff;
+        background-color: #ff7a00;
+        border-color: #ff7a00;
+    }
 
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #2653d4;
-  border-color: #244ec9;
-}
+    .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+    .show > .btn-primary.dropdown-toggle {
+        color: #fff;
+        background-color: #ff7a00;
+        border-color: #ff7a00;
+    }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
@@ -3465,10 +3489,10 @@ input[type="button"].btn-block {
   align-items: center;
   padding: 0.375rem 0.75rem;
   margin-bottom: 0;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: #6e707e;
+  color: #000;
   text-align: center;
   white-space: nowrap;
   background-color: #eaecf4;
@@ -5549,6 +5573,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   line-height: 1;
   color: #000;
   text-shadow: 0 1px 0 #fff;
+  border:none;
   opacity: .5;
 }
 
@@ -9734,6 +9759,7 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #dddfeb !important;
+
   }
   .table-dark {
     color: inherit;
@@ -9871,8 +9897,8 @@ a:focus {
 }
 
 .bg-gradient-primary {
-    background-color: #f63d0c;
-    background-image: linear-gradient(180deg, #131311 10%, #f63d0c 100%);
+    background-color: #ff5a00;
+    background-image: linear-gradient(180deg,#ff5a00 10%,#ff7800 100%);
     background-size: cover;
 }
 
@@ -9987,11 +10013,11 @@ a:focus {
 }
 
 .text-gray-600 {
-  color: #858796 !important;
+    color: #000000 !important;
 }
 
 .text-gray-700 {
-  color: #6e707e !important;
+  color: #000000 !important;
 }
 
 .text-gray-800 {
@@ -10423,7 +10449,7 @@ a:focus {
   height: 4.375rem;
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 600;
   padding: 1.5rem 1rem;
   text-align: center;
   text-transform: uppercase;
@@ -10465,7 +10491,7 @@ a:focus {
 }
 
 .sidebar .sidebar-card .sidebar-card-illustration {
-  height: 3rem;
+  height: 5rem;
   display: block;
 }
 
@@ -10506,15 +10532,15 @@ a:focus {
     display: block;
     width: 100%;
     text-align: left;
-    padding: 1rem;
+  
     width: 14rem;
   }
   .sidebar .nav-item .nav-link i {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     margin-right: 0.25rem;
   }
   .sidebar .nav-item .nav-link span {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     display: inline;
   }
   .sidebar .nav-item .nav-link[data-toggle="collapse"]::after {

@@ -53,11 +53,11 @@
             </li>
 
             <li class="nav-item ">
-             <a class="nav-link" href="Numune.aspx"><i class="fas fa-fw fa-flask"></i> Numune Gönder</a></li>
+             <a class="nav-link" href="NumuneGonder.aspx"><i class="fas fa-fw fa-flask"></i> Numune Gönder</a></li>
             
                      
             <li class="nav-item">                      
-             <a class="nav-link" href="PageTeklif.aspx"> <i class="fas fa-fw fa-envelope-open"></i> Teklifler</a></li>
+             <a class="nav-link" href="Teklif.aspx"> <i class="fas fa-fw fa-envelope-open"></i> Teklifler</a></li>
                
 
              <li class="nav-item active">
@@ -102,7 +102,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <asp:Label ID="Lbl_ad" runat="server" class="mr-2 d-none d-lg-inline text-gray-600 small" Text="Label"></asp:Label>
+                                
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -188,7 +189,7 @@
                                                  <asp:TemplateField HeaderText="Rapor İndir">
                                                      <ItemTemplate>                                                             
                                                   <asp:LinkButton ID="Btn_Goruntule" runat="server" CausesValidation="false" 
-                                                        class="btn btn-danger" Text="İndir" CommandName="Open" CommandArgument='<%# Eval("RaporNo") %>' />                                                                                                      
+                                                        class="btn btn-danger btn-sm" Text="İndir" CommandName="Open" CommandArgument='<%# Eval("RaporNo") %>' />                                                                                                      
 <%--                                                    <asp:LinkButton ID="Btn_indir" runat="server" CausesValidation="false" 
                                                         class="btn btn-danger" Text="İndir1" CommandName="Download" CommandArgument='<%# Eval("Yol") %>' />        
                                                      <asp:LinkButton ID="Btn_Download" runat="server"  

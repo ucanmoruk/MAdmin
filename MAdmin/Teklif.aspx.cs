@@ -9,34 +9,33 @@ using System.Web.UI.WebControls;
 
 namespace MAdmin
 {
-    public partial class Teklif : System.Web.UI.Page
+    public partial class PageTeklif : System.Web.UI.Page
     {
         SqlBaglanti bgl = new SqlBaglanti();
 
-       
+        protected void listele()
+        {
+            SqlCommand comm = new SqlCommand("select * from Teklif where FirmaAd = N'"+Lbl_ad.Text+"' order by Tarih desc", bgl.baglanti());
+            SqlDataReader dr = comm.ExecuteReader();
+            GridView1.DataSource = dr;
+            GridView1.DataBind();
+            bgl.baglanti().Close();
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlCommand comm = new SqlCommand("select Aciklama, Fiyat, Birim from Teklif", bgl.baglanti());
-            SqlDataAdapter reader = new SqlDataAdapter(comm);
-            DataTable dt = new DataTable();
-            reader.Fill(dt);
-            myRepeater.DataSource = dt;
-            myRepeater.DataBind();
 
-            try
+            if (Session["Kullanici"] == null)
             {
+                Response.Redirect("giris.aspx");
+            }
                
-
-            }
-            catch
+            else
             {
-                Response.Write("Veri okuma işleminde hata meydana geldi!");
+                Lbl_ad.Text = Session["Kullanici"].ToString();
+                listele();
             }
-            finally
-            {
-                bgl.baglanti().Close();
-            }
+                
 
         }
     }

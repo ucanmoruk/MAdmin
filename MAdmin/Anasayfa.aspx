@@ -11,16 +11,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>MASS Portal | Anasayfa</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <%--<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">--%>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <%--<link href="css/sb-admin-2.min.css" rel="stylesheet">--%>
+<%--    <link href="css/sb-admin-2.min.css" rel="stylesheet">--%>
     <link href="css/sb-admin-2.css" rel="stylesheet" />
 </head>
 <body id="page-top">
@@ -35,10 +37,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Anasayfa.aspx">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-flask"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">MASS Portal</div>
+            <img class="logosidebar" src="img/logo-beyaz.png" />
             </a>
            
             <!-- Divider -->
@@ -51,11 +50,11 @@
             </li>
 
             <li class="nav-item ">
-             <a class="nav-link" href="Numune.aspx"><i class="fas fa-fw fa-flask"></i> Numune Gönder</a></li>
+             <a class="nav-link" href="NumuneGonder.aspx"><i class="fas fa-fw fa-flask"></i> Numune Gönder</a></li>
             
                      
             <li class="nav-item">                      
-             <a class="nav-link" href="PageTeklif.aspx"> <i class="fas fa-fw fa-envelope-open"></i> Teklifler</a></li>
+             <a class="nav-link" href="Teklif.aspx"> <i class="fas fa-fw fa-envelope-open"></i> Teklifler</a></li>
                
 
              <li class="nav-item">
@@ -67,11 +66,17 @@
                         
             <!-- Sidebar Message -->
             <div class="sidebar-card">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
+<%--                <img class="sidebar-card-illustration mb-2" src="img/favicon.png" alt="">--%>
                 <p class="text-center mb-2"><strong>MASS Portal</strong> ile talep oluşturabilir, tekliflerinize ve raporlarınıza ulaşabilirsiniz!</p>
-                <a class="btn btn-success btn-sm" href="#">Bize Ulaşın !</a>
+                <a class="btn btn-success btn-sm" target="_blank" href="https://www.masslab.com.tr/">Bize Ulaşın !</a>
             </div>
 
+            <br />
+            <div runat="server" id="divadmin">
+            <hr class="sidebar-divider my-0">
+              <li class="nav-item">
+             <a class="nav-link" href="TeklifEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Teklif Ekle</a></li>
+                </div>
         </ul>
         <!-- End of Sidebar -->
 
@@ -89,24 +94,10 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Topbar Navbar -->
+                 
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                     <%--   <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -249,33 +240,26 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
+                     --%>   <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <asp:Label ID="Lbl_ad" runat="server" Text="Label" class="mr-2 d-none d-lg-inline text-gray-600 small"></asp:Label>
+                               
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="profil.aspx">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Profil Bilgileri
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Çıkış Yap
                                 </a>
                             </div>
                         </li>
@@ -290,9 +274,9 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <h1 class="h3 mb-0 text-gray-800">Hoşgeldiniz</h1>
+<%--                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>--%>
                     </div>
 
                     <!-- Content Row -->
@@ -305,7 +289,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
+                                                İş Hacmi</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                                         </div>
                                         <div class="col-auto">
@@ -323,7 +307,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
+                                                Açık Bakiye</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                                         </div>
                                         <div class="col-auto">
@@ -340,11 +324,11 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tamamlanan Rapor
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">75 %</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
@@ -370,7 +354,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
+                                                Analiz Talebi</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
@@ -384,6 +368,50 @@
 
                     <!-- Content Row -->
 
+                    
+                            <!-- Approach -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Analiz Talepleriniz</h6>
+                                </div>
+                                <div class="card-body">    <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Tarih</th>
+                                                <th>Raporlandırılacak Firma</th>
+                                                <th>Numune Sayısı</th>
+                                                <th>Detay</th>
+                                            </tr>
+                                        </thead>
+                                      
+                                        <tbody>
+                                            <tr>
+                                                <td>18.01.2021</td>
+                                                <td>Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.</td>
+                                                <td>4</td>
+                                                <td><button type="button" class="btn btn-success">Görüntüle</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>21.01.2021</td>
+                                                <td>Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.</td>
+                                                <td>2</td>
+                                                <td><button type="button" class="btn btn-success">Görüntüle</button></td>
+                                            </tr>
+                                                
+                                        </tbody>
+                                    </table>
+                           
+
+                                    
+                                    </div>
+
+                                </div></div>
+                                 
+                                 
+                                     
+                            
+<%--
                     <div class="row">
 
                         <!-- Area Chart -->
@@ -611,7 +639,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div>--%>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -623,7 +651,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Tüm Hakları Saklıdır. © Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.</span>
                     </div>
                 </div>
             </footer>
@@ -646,15 +674,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Çıkış Yapıyorsunuz ?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Oturumunuzu sonlandırmak için "Çıkış Yap" butonuna basabilirsiniz.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Vazgeç</button>
+                    <a class="btn btn-primary" href="giris.aspx">Çıkış Yap</a>
                 </div>
             </div>
         </div>

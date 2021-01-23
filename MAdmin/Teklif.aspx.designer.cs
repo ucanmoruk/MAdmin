@@ -10,7 +10,7 @@
 namespace MAdmin {
     
     
-    public partial class Teklif {
+    public partial class PageTeklif {
         
         /// <summary>
         /// form1 denetimi.
@@ -22,12 +22,21 @@ namespace MAdmin {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// myRepeater denetimi.
+        /// Lbl_ad denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik üretilmiş alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater myRepeater;
+        protected global::System.Web.UI.WebControls.Label Lbl_ad;
+        
+        /// <summary>
+        /// GridView1 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik üretilmiş alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

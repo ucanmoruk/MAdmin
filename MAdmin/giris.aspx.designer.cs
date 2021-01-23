@@ -10,7 +10,7 @@
 namespace MAdmin {
     
     
-    public partial class Raporlar {
+    public partial class giris {
         
         /// <summary>
         /// form1 denetimi.
@@ -22,30 +22,48 @@ namespace MAdmin {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Lbl_ad denetimi.
+        /// txt_kod denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik üretilmiş alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_ad;
+        protected global::System.Web.UI.WebControls.TextBox txt_kod;
         
         /// <summary>
-        /// txtarama denetimi.
+        /// txt_parola denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik üretilmiş alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtarama;
+        protected global::System.Web.UI.WebControls.TextBox txt_parola;
         
         /// <summary>
-        /// GridView1 denetimi.
+        /// btn_giris denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik üretilmiş alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Button btn_giris;
+        
+        /// <summary>
+        /// theDiv denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik üretilmiş alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl theDiv;
+        
+        /// <summary>
+        /// Btn_kapat denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik üretilmiş alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_kapat;
     }
 }
