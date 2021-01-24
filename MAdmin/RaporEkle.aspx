@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Raporlar.aspx.cs" Inherits="MAdmin.Raporlar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RaporEkle.aspx.cs" Inherits="MAdmin.RaporEkle" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MASS Portal | Raporlar</title>
+    <title>MASS Portal | Teklif Ekle</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,15 +26,11 @@
     <link href="css/sb-admin-2.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-   
-      <form id="form1" runat="server">
-        <div>
-            
-          
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+    <form id="form1" runat="server">
+     
+     <div id="wrapper">
 
-       <!-- Sidebar -->
+        <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -59,7 +55,7 @@
              <a class="nav-link" href="Teklif.aspx"> <i class="fas fa-fw fa-envelope-open"></i> Teklifler</a></li>
                
 
-             <li class="nav-item active">
+             <li class="nav-item">
              <a class="nav-link" href="Raporlar.aspx"><i class="fas fa-fw fa-university"></i> Raporlar</a></li>
              
             <br />
@@ -73,8 +69,6 @@
                 <a class="btn btn-success btn-sm" target="_blank" href="https://www.masslab.com.tr/">Bize Ulaşın !</a>
             </div>
 
-            <br />
-            
         </ul>
         <!-- End of Sidebar -->
 
@@ -92,14 +86,11 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                  
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">                   
-                   
 
-                    
+                    <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - User Information -->
+
+                     <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,106 +117,158 @@
                     </ul>
 
                 </nav>
+                <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                                 <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Test Raporları</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>Firmanıza ait 01.01.2021 tarihi itibari ile yayınlanan test raporlarına aşağıdaki tablodan ulaşabilirsiniz..</p>
-                                </div>
-                            </div>   
+                                     
+                    <!-- Content Row -->
+                    <div class="row">
                     
-                    <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Test Raporları</h6>
-                                </div>
-                                <div class="card-body">
-                                    
-                                    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1">Arama yapabilirsiniz..</span>
-  </div>
-                                        <asp:TextBox id="txtarama"  class="form-control" placeholder="Firma Adı" runat="server" /> 
-</div>
+                            <!-- Approach -->
+ <div class="card shadow mb-4">
+ <div class="card-header py-3">
+ <h6 class="m-0 font-weight-bold text-primary">Rapor Yükleme</h6>
+ </div>
+ <div class="card-body">    
 
-<hr />
-                                         <asp:GridView ID="GridView1" class="table table-bordered" runat="server" 
+    <div class="input-group mb-3">                         
+    <div class="input-group-prepend">
+    <span class="input-group-text" >Firma Adı:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
+    <asp:DropDownList ID="list_firma" class="form-control" runat="server"></asp:DropDownList></div>
+
+     <div class="input-group mb-3">                         
+    <div class="input-group-prepend">
+    <span class="input-group-text" >Proje Adı:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
+    <asp:DropDownList ID="list_proje" class="form-control" runat="server">
+        <asp:ListItem>Diğer</asp:ListItem>
+    </asp:DropDownList></div>
+
+      <div class="input-group mb-3">
+<div class="input-group-prepend">
+<label class="input-group-text" for="inputGroupSelect01">Numune Tür - Ad:&nbsp;</label> </div>
+     <asp:TextBox ID="txt_tur" runat="server"  class="form-control" ></asp:TextBox>
+    <asp:TextBox ID="txt_ad" runat="server"  class="form-control"></asp:TextBox>
+      </div>
+
+     
+    <div class="input-group mb-3">                         
+    <div class="input-group-prepend">
+    <span class="input-group-text" >Rapor No - Tarih:&nbsp;&nbsp;</span> </div>          
+    <asp:TextBox ID="Txt_RaporNo" runat="server"  class="form-control" ></asp:TextBox>
+    <asp:TextBox ID="Txt_tarih" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+    </div>
+    
+     <div class="input-group mb-3">                         
+    <div class="input-group-prepend">
+    </div>  
+         <asp:FileUpload ID="FileUpload1" runat="server" class="input-group-text"/> </div>
+
+     <div class="input-group mb-3">                         
+    <div class="input-group-prepend btn-right">
+        <asp:Button ID="Btn_Firma"  class="btn btn-success btn-right" runat="server" Text="Rapor Yükle" OnClick="Btn_Firma_Click" />
+    </div></div>
+
+       <br />
+         
+          <div runat="server" id="Div1">
+<div class="alert alert-warning alert-dismissible fade show">
+<%--    <center><button type="button" class="close" data-dismiss="alert">&times</button>--%>
+<asp:Button ID="Button1" runat="server" class="close"  Text="x" OnClick="Button1_Click" ></asp:Button>
+    <center><strong>Dosya başarı ile yüklendi!</strong> </center>
+  </div> </div>
+
+</div></div></div>
+                                 
+
+                    
+                            <!-- Approach -->
+ <div class="card shadow mb-4">
+ <div class="card-header py-3">
+ <h6 class="m-0 font-weight-bold text-primary">Yüklenen Raporlar</h6>
+ </div>
+ <div class="card-body">    
+
+ <asp:GridView ID="GridView1" class="table table-bordered" runat="server" 
                                              OnRowCommand="GridView1_OnRowCommand" AutoGenerateColumns="False">
 
                                              <Columns>
                                                  <asp:TemplateField HeaderText="Tarih">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}")%>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}") %>'></asp:Literal>    
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Rapor No">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal1a" runat="server" Text='<%# Eval("RaporNo") %>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("RaporNo") %>'></asp:Literal>    
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
-                                                     <asp:TemplateField HeaderText="Firma Adı">
+                                                 <asp:TemplateField HeaderText="Firma Adı">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="LiteralAd" runat="server" Text='<%# Eval("FirmaAd") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField> 
-                                                 <asp:TemplateField HeaderText="&#220;r&#252;n T&#252;r&#252;">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("NumuneTur") %>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("FirmaAd") %>'></asp:Literal>    
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Numune Adı">
+                                                 <asp:TemplateField HeaderText="Proje">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("NumuneAd") %>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("Proje") %>'></asp:Literal>    
                                                      </ItemTemplate>
-                                                 </asp:TemplateField>                                                 
-                                                 <asp:TemplateField HeaderText="Rapor İndir">
+                                                 </asp:TemplateField>
+                                                 <asp:TemplateField HeaderText="Numune Türü">
+                                                     <ItemTemplate>
+                                                              <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("NumuneTur") %>'></asp:Literal>    
+                                                     </ItemTemplate>
+                                                 </asp:TemplateField>
+                                                  <asp:TemplateField HeaderText="Numune Adı">
+                                                     <ItemTemplate>
+                                                              <asp:Literal ID="Literal5" runat="server" Text='<%# Eval("NumuneAd") %>'></asp:Literal>    
+                                                     </ItemTemplate>
+                                                 </asp:TemplateField>
+                                                 <asp:TemplateField HeaderText="İndir">
                                                      <ItemTemplate>                                                             
-                                                  <asp:LinkButton ID="Btn_indir" runat="server" CausesValidation="false" 
-                                                        class="btn btn-primary btn-sm" Text="İndir" CommandName="Open" CommandArgument='<%# Eval("RaporNo") %>' />                                                                                                      
-<%--                                                    <asp:LinkButton ID="Btn_indir" runat="server" CausesValidation="false" 
-                                                        class="btn btn-danger" Text="İndir1" CommandName="Download" CommandArgument='<%# Eval("Yol") %>' />        
-                                                     <asp:LinkButton ID="Btn_Download" runat="server"  
-                                                        class="btn btn-danger" Text="İndir2" OnClick ="Btn_Download_Click" />    --%>    
-                                                             
-                                                     
+                                                  <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" 
+                                                        class="btn btn-primary btn-sm" Text="İndir" CommandName="Open" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
+                                                     </ItemTemplate>
+                                                 </asp:TemplateField>
+                                                 <asp:TemplateField HeaderText="Sil">
+                                                     <ItemTemplate>                                                             
+                                                  <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
+                                                        class="btn btn-success btn-sm" Text="Sil" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                              </Columns>
                                          </asp:GridView>
-                                </div>
-                            </div>   
 
-                       
-                  
+</div></div>
 
+      
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+</div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Tüm Hakları Saklıdır. &copy; Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.</span>
+                        <span>Tüm Hakları Saklıdır. © Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.</span>
                     </div>
                 </div>
             </footer>
             <!-- End of Footer -->
 
-        </div>
+        
         <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
+            <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
     <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -243,7 +286,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -266,7 +308,11 @@
 
 
         </div>
-    </form>
-
+            
+        </div>
+        
+        </div>
+    
+           </div> </form>
 </body>
 </html>

@@ -202,7 +202,7 @@
                                                     <asp:TemplateField  HeaderText="İndir">
                                                     <ItemTemplate>
   <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
-                                                        class="btn btn-danger btn-sm" Text="İndir" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />  
+                                                        class="btn btn-primary btn-sm" Text="İndir" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />  
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>

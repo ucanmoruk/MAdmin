@@ -16,6 +16,13 @@
     background-size: cover
 }
 
+.card-body-giris {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    max-width: 450px;
+}
+
 .logo {
     width: 70%;
     height: 70%;
@@ -34,6 +41,11 @@
 
 .giris {
     background-color: #F3F7F9;
+    background-image: url(/img/Welcome.jfif);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .btn-right{
@@ -4522,9 +4534,9 @@ input[type="button"].btn-block {
 }
 
 .card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1.25rem;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
 }
 
 .card-title {

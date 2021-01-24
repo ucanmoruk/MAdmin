@@ -75,6 +75,7 @@
     <Content Include="KayitOl.aspx" />
     <Content Include="NumuneGonder.aspx" />
     <Content Include="profil.aspx" />
+    <Content Include="RaporEkle.aspx" />
     <Content Include="Teklif.aspx" />
     <Content Include="Anasayfa.aspx" />
     <Content Include="blank.html" />
@@ -2098,6 +2099,13 @@
     </Compile>
     <Compile Include="profil.aspx.designer.cs">
       <DependentUpon>profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RaporEkle.aspx.cs">
+      <DependentUpon>RaporEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RaporEkle.aspx.designer.cs">
+      <DependentUpon>RaporEkle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Teklif.aspx.cs">
       <DependentUpon>Teklif.aspx</DependentUpon>

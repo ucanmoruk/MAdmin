@@ -192,7 +192,7 @@
                                              <Columns>
                                                  <asp:TemplateField HeaderText="Tarih">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:dd.mm.yyyy}") %>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}") %>'></asp:Literal>    
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Teklif No">
@@ -218,7 +218,7 @@
                                                  <asp:TemplateField HeaderText="İndir">
                                                      <ItemTemplate>                                                             
                                                   <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" 
-                                                        class="btn btn-danger btn-sm" Text="İndir" CommandName="Open" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
+                                                        class="btn btn-primary btn-sm" Text="İndir" CommandName="Open" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Sil">

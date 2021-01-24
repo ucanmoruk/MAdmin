@@ -15,16 +15,54 @@ namespace MAdmin
     public partial class Raporlar : System.Web.UI.Page
     {
         SqlBaglanti bgl = new SqlBaglanti();
+        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlCommand comm = new SqlCommand("select RaporNo, Tur, Marka,Model, Yol from Rapor", bgl.baglanti());
-            SqlDataReader dr = comm.ExecuteReader();
-            GridView1.DataSource = dr;
-            GridView1.DataBind();
-            bgl.baglanti().Close();
+            if (Session["Kullanici"] == null)
+            {
+                Response.Redirect("giris.aspx");
+            }
+            else
+            {
+                Lbl_ad.Text = Session["Kullanici"].ToString();
+                if (Session["Tur"].ToString() == "Admin")
+                {
+                 
+                    SqlCommand comm = new SqlCommand("select * from Rapor", bgl.baglanti());
+                    SqlDataReader dr = comm.ExecuteReader();
+                    GridView1.DataSource = dr;
+                    GridView1.DataBind();
+                    bgl.baglanti().Close();
+                }
+                else if (Session["Tur"].ToString() == "Proje")
+                {
+                 
+
+                    SqlCommand comm = new SqlCommand("select * from Rapor where Proje=N'"+Lbl_ad.Text+"'", bgl.baglanti());
+                    SqlDataReader dr = comm.ExecuteReader();
+                    GridView1.DataSource = dr;
+                    GridView1.DataBind();
+                    bgl.baglanti().Close();
 
 
+                }
+                else
+                {
+                    
+                    txtarama.Attributes.Add("placeholder", "Numune Adı");
+
+                    SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd=N'" + Lbl_ad.Text + "'", bgl.baglanti());
+                    SqlDataReader dr = comm.ExecuteReader();
+                    GridView1.DataSource = dr;
+                    GridView1.DataBind();
+                    bgl.baglanti().Close();
+
+                    GridView1.Columns[2].Visible = false;
+                }
+            }
+                       
             //textbox arama yapabilirsin
             // https://www.aspsnippets.com/Articles/Search-and-Filter-GridView-on-TextBox-OnTextChanged-event-in-ASPNet-using-C-and-VBNet.aspx
 
@@ -45,9 +83,11 @@ namespace MAdmin
                 response.Clear();
                 response.ContentType = "application/pdf";
                 response.AddHeader("Content-Disposition", "attachment; filename=" + yol +".pdf" + ";");
-                response.TransmitFile(Server.MapPath("~/Raporlar/GC.pdf"));
+                string path = yol + ".pdf";
+                response.TransmitFile(Server.MapPath("~\\Raporlar\\" + path));
                 response.Flush();
                 response.End();
+                
             }
         }
 

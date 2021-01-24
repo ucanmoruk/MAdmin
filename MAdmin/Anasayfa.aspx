@@ -76,7 +76,10 @@
             <hr class="sidebar-divider my-0">
               <li class="nav-item">
              <a class="nav-link" href="TeklifEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Teklif Ekle</a></li>
-                </div>
+            <li class="nav-item">
+             <a class="nav-link" href="RaporEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Rapor Ekle</a></li>
+                   
+            </div>
         </ul>
         <!-- End of Sidebar -->
 
