@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RaporEkle.aspx.cs" Inherits="MAdmin.RaporEkle" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FirmaEkle.aspx.cs" Inherits="MAdmin.FirmaEkle" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MASS Portal | Rapor Ekle</title>
+    <title>MASS Portal | Firma Ekleme</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@
     <link href="css/sb-admin-2.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-    <form id="form1" runat="server">
+<form id="form1" runat="server">
      
      <div id="wrapper">
 
@@ -97,7 +97,7 @@
                                 <asp:Label ID="Lbl_ad" runat="server" Text="Label" class="mr-2 d-none d-lg-inline text-gray-600 small"></asp:Label>
                                
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg" />
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -128,54 +128,69 @@
                             <!-- Approach -->
  <div class="card shadow mb-4">
  <div class="card-header py-3">
- <h6 class="m-0 font-weight-bold text-primary">Rapor Yükleme</h6>
+ <h6 class="m-0 font-weight-bold text-primary">Yeni Firma Kaydı Oluşturma</h6>
  </div>
  <div class="card-body">    
 
-    <div class="input-group mb-3">                         
-    <div class="input-group-prepend">
-    <span class="input-group-text" >Firma Adı:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
-    <asp:DropDownList ID="list_firma" class="form-control" runat="server"></asp:DropDownList></div>
-
      <div class="input-group mb-3">                         
     <div class="input-group-prepend">
-    <span class="input-group-text" >Proje Adı:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
-    <asp:DropDownList ID="list_proje" class="form-control" runat="server">
-        <asp:ListItem>Diğer</asp:ListItem>
-    </asp:DropDownList></div>
+    <span class="input-group-text" >Cari Kodu - Firma Türü:</span> </div>  
+    <asp:TextBox ID="txt_kod" runat="server"  class="form-control" ></asp:TextBox>
+          <asp:DropDownList ID="tur" class="form-control" runat="server">
+     <asp:ListItem>Seçiniz..</asp:ListItem>
+     <asp:ListItem>Müşteri</asp:ListItem>
+     <asp:ListItem>Proje</asp:ListItem>
+ </asp:DropDownList>
+     </div>
+
+
+    <div class="input-group mb-3">                         
+    <div class="input-group-prepend">
+    <span class="input-group-text" >Firma Adı:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
+    <asp:TextBox ID="txt_firma" runat="server"  class="form-control" ></asp:TextBox></div>
 
       <div class="input-group mb-3">
 <div class="input-group-prepend">
-<label class="input-group-text" for="inputGroupSelect01">Numune Tür - Ad:&nbsp;</label> </div>
-     <asp:TextBox ID="txt_tur" runat="server"  class="form-control" ></asp:TextBox>
-    <asp:TextBox ID="txt_ad" runat="server"  class="form-control"></asp:TextBox>
-      </div>
+<label class="input-group-text" for="inputGroupSelect01">Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </div>
+<asp:TextBox ID="txt_adres" runat="server"  class="form-control" ></asp:TextBox></div>
 
      
     <div class="input-group mb-3">                         
     <div class="input-group-prepend">
-    <span class="input-group-text" >Rapor No - Tarih:&nbsp;&nbsp;</span> </div>          
-    <asp:TextBox ID="Txt_RaporNo" runat="server"  class="form-control" ></asp:TextBox>
-    <asp:TextBox ID="Txt_tarih" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+    <span class="input-group-text" >Vergi Dairesi - No:</span> </div>          
+    <asp:TextBox ID="txt_vd" runat="server"  class="form-control" ></asp:TextBox>
+    <asp:TextBox ID="txt_vn" runat="server" class="form-control"></asp:TextBox>
     </div>
     
+    <div class="input-group mb-3">                         
+    <div class="input-group-prepend">
+    <span class="input-group-text" >Telefon:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>          
+    <asp:TextBox ID="txt_telefon" runat="server"  class="form-control" ></asp:TextBox>
+    </div>
+
      <div class="input-group mb-3">                         
     <div class="input-group-prepend">
-    </div>  
-         <asp:FileUpload ID="FileUpload1" runat="server" class="input-group-text"/> </div>
+    <span class="input-group-text" >Mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>          
+    <asp:TextBox ID="Txt_mail" runat="server"  class="form-control" ></asp:TextBox>
+    </div>
+
+
 
      <div class="input-group mb-3">                         
     <div class="input-group-prepend btn-right">
-        <asp:Button ID="Btn_Firma"  class="btn btn-success btn-right" runat="server" Text="Rapor Yükle" OnClick="Btn_Firma_Click" />
+        <asp:Button ID="Btn_Firma"  class="btn btn-success btn-right" runat="server" Text="Firma Ekle" OnClick="Btn_Firma_Click"  />
     </div></div>
-
-       <br />
+          <br />
          
           <div runat="server" id="Div1">
 <div class="alert alert-warning alert-dismissible fade show">
 <%--    <center><button type="button" class="close" data-dismiss="alert">&times</button>--%>
-<asp:Button ID="Button1" runat="server" class="close"  Text="x" OnClick="Button1_Click" ></asp:Button>
-    <center><strong>Dosya başarı ile yüklendi!</strong> </center>
+<asp:Button ID="Button1" runat="server" class="close"  Text="x" OnClick="Button1_Click"></asp:Button>
+    <center><strong>
+     " <asp:Label ID="lbl_firma" runat="server" Text="Label"></asp:Label> " firması MASS Portal Sistemine 
+     " <asp:Label ID="lbl_kod" runat="server" Text="Label"></asp:Label> " kodu ve 
+     " <asp:Label ID="lbl_parola" runat="server" Text="Label"></asp:Label> " şifresi ile kaydedilmiştir.</strong> </center>
+
   </div> </div>
 
 </div></div></div>
@@ -185,54 +200,66 @@
                             <!-- Approach -->
  <div class="card shadow mb-4">
  <div class="card-header py-3">
- <h6 class="m-0 font-weight-bold text-primary">Yüklenen Raporlar</h6>
+ <h6 class="m-0 font-weight-bold text-primary">Firmalar</h6>
  </div>
  <div class="card-body">    
 
- <asp:GridView ID="GridView1" class="table table-bordered" runat="server" 
-                                             OnRowCommand="GridView1_OnRowCommand" AutoGenerateColumns="False">
+                                         <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Arama yapabilirsiniz..</span>
+  </div>
+ <asp:TextBox id="txtarama"  class="form-control" placeholder="Firma Adı" runat="server" 
+     OnTextChanged="txtarama_TextChanged" /> 
+</div>
 
+<hr />
+
+
+ <asp:GridView ID="GridView1"  runat="server"
+              class="table table-bordered"  AutoGenerateColumns="False"
+      emptydatatext="Henüz veri bulunmuyor." >      
+  <PagerSettings Mode="NumericFirstLast" FirstPageText="İlk" LastPageText="Son" />
+     <pagerstyle backcolor="LightBlue" height="30px" verticalalign="Bottom" horizontalalign="Center"/>
+     <pagersettings mode="Numeric"  position="Bottom" pagebuttoncount="10"/>                      
                                              <Columns>
-                                                 <asp:TemplateField HeaderText="Tarih">
+                                                  <asp:TemplateField HeaderText="Kod">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Rapor No">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("RaporNo") %>'></asp:Literal>    
-                                                     </ItemTemplate>
+                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Kod") %>'></asp:Literal>    
+                                                     </ItemTemplate><ItemStyle Font-Size="Small"></ItemStyle>
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Firma Adı">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("FirmaAd") %>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Firma_Adi") %>'></asp:Literal>    
                                                      </ItemTemplate>
+                                                     <ItemStyle Font-Size="Small"></ItemStyle>
                                                  </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Proje">
+                                                 
+                                                 <asp:TemplateField HeaderText="Vergi Dairesi">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("Proje") %>'></asp:Literal>    
-                                                     </ItemTemplate>
+                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("Vergi_Dairesi") %>'></asp:Literal>    
+                                                     </ItemTemplate><ItemStyle Font-Size="Small"></ItemStyle>
                                                  </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Numune Türü">
+                                                 <asp:TemplateField HeaderText="Vergi No">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("NumuneTur") %>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("Vergi_No") %>'></asp:Literal>    
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
-                                                  <asp:TemplateField HeaderText="Numune Adı">
+                                                  
+                                                   <asp:TemplateField HeaderText="Tür">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal5" runat="server" Text='<%# Eval("NumuneAd") %>'></asp:Literal>    
-                                                     </ItemTemplate>
+                                                              <asp:Literal ID="Literal5" runat="server" Text='<%# Eval("Tur") %>'></asp:Literal>    
+                                                     </ItemTemplate><ItemStyle Font-Size="Small"></ItemStyle>
                                                  </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="İndir">
+                                                 <asp:TemplateField HeaderText="Düzenle">
                                                      <ItemTemplate>                                                             
                                                   <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" 
-                                                        class="btn btn-primary btn-sm" Text="İndir" CommandName="Open" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
+                                                        class="btn btn-primary btn-sm" Text="Düzenle" CommandName="Open" CommandArgument='<%# Eval("Kod") %>' />                                                                                               
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Sil">
                                                      <ItemTemplate>                                                             
-                                                  <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
-                                                        class="btn btn-success btn-sm" Text="Sil" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
+                                                  <asp:LinkButton ID="Btn_Sil" runat="server" 
+                                                        class="btn btn-danger btn-sm" Text="Sil" CommandName="Delete" CommandArgument='<%# Eval("Kod") %>' />                                                                                               
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                              </Columns>
@@ -309,10 +336,11 @@
 
         </div>
             
-       <%-- </div></div></div>--%>
+        </div>
         
-     
+        </div>
     
-           
-</form> </body>
+           </div> 
+    </form>
+</body>
 </html>

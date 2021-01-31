@@ -16,7 +16,43 @@ namespace MAdmin
     {
         SqlBaglanti bgl = new SqlBaglanti();
         
+        protected void listele()
+        {
+            if (Session["Tur"].ToString() == "Admin")
+            {
 
+                SqlCommand comm = new SqlCommand("select * from Rapor", bgl.baglanti());
+                SqlDataReader dr = comm.ExecuteReader();
+                GridView1.DataSource = dr;
+                GridView1.DataBind();
+                bgl.baglanti().Close();
+            }
+            else if (Session["Tur"].ToString() == "Proje")
+            {
+
+
+                SqlCommand comm = new SqlCommand("select * from Rapor where Proje=N'" + Lbl_ad.Text + "'", bgl.baglanti());
+                SqlDataReader dr = comm.ExecuteReader();
+                GridView1.DataSource = dr;
+                GridView1.DataBind();
+                bgl.baglanti().Close();
+
+
+            }
+            else
+            {
+
+              //  txtarama.Attributes.Add("placeholder", "Numune Adı");
+
+                SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd=N'" + Lbl_ad.Text + "'", bgl.baglanti());
+                SqlDataReader dr = comm.ExecuteReader();
+                GridView1.DataSource = dr;
+                GridView1.DataBind();
+                bgl.baglanti().Close();
+
+                GridView1.Columns[2].Visible = false;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,40 +63,7 @@ namespace MAdmin
             else
             {
                 Lbl_ad.Text = Session["Kullanici"].ToString();
-                if (Session["Tur"].ToString() == "Admin")
-                {
-                 
-                    SqlCommand comm = new SqlCommand("select * from Rapor", bgl.baglanti());
-                    SqlDataReader dr = comm.ExecuteReader();
-                    GridView1.DataSource = dr;
-                    GridView1.DataBind();
-                    bgl.baglanti().Close();
-                }
-                else if (Session["Tur"].ToString() == "Proje")
-                {
-                 
-
-                    SqlCommand comm = new SqlCommand("select * from Rapor where Proje=N'"+Lbl_ad.Text+"'", bgl.baglanti());
-                    SqlDataReader dr = comm.ExecuteReader();
-                    GridView1.DataSource = dr;
-                    GridView1.DataBind();
-                    bgl.baglanti().Close();
-
-
-                }
-                else
-                {
-                    
-                    txtarama.Attributes.Add("placeholder", "Numune Adı");
-
-                    SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd=N'" + Lbl_ad.Text + "'", bgl.baglanti());
-                    SqlDataReader dr = comm.ExecuteReader();
-                    GridView1.DataSource = dr;
-                    GridView1.DataBind();
-                    bgl.baglanti().Close();
-
-                    GridView1.Columns[2].Visible = false;
-                }
+                listele();
             }
                        
             //textbox arama yapabilirsin
@@ -68,6 +71,7 @@ namespace MAdmin
 
 
         }
+
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName != "Open") return;
@@ -84,7 +88,7 @@ namespace MAdmin
                 response.ContentType = "application/pdf";
                 response.AddHeader("Content-Disposition", "attachment; filename=" + yol +".pdf" + ";");
                 string path = yol + ".pdf";
-                response.TransmitFile(Server.MapPath("~\\Raporlar\\" + path));
+                response.TransmitFile(Server.MapPath("~\\Raporlar\\2021\\" + path));
                 response.Flush();
                 response.End();
                 
@@ -106,6 +110,47 @@ namespace MAdmin
 
         }
 
+        protected void arama()
+        {
+            //if (Session["Tur"].ToString() == "Admin")
+            //{
+            //    SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd = '"+txtarama.Text+"'", bgl.baglanti());
+            //    SqlDataReader dr = comm.ExecuteReader();
+            //    GridView1.DataSource = dr;
+            //    GridView1.DataBind();
+            //    bgl.baglanti().Close();
+            //}
+            //else if (Session["Tur"].ToString() == "Proje")
+            //{
+            //    SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd = '" + txtarama.Text + "'", bgl.baglanti());
+            //    SqlDataReader dr = comm.ExecuteReader();
+            //    GridView1.DataSource = dr;
+            //    GridView1.DataBind();
+            //    bgl.baglanti().Close();
+            //}
+            //else
+            //{
+            //    SqlCommand comm = new SqlCommand("select * from Rapor where NumuneAd = '" + txtarama.Text + "'", bgl.baglanti());
+            //    SqlDataReader dr = comm.ExecuteReader();
+            //    GridView1.DataSource = dr;
+            //    GridView1.DataBind();
+            //    bgl.baglanti().Close();
 
+            //}
+        }
+
+        //protected void txtarama_TextChanged(object sender, EventArgs e)
+        //{
+                  
+        //    if (txtarama.Text != null)
+        //    {
+        //        arama();
+        //    }
+        //    else
+        //    {
+        //        listele();
+        //    }
+
+        //}
     }
 }

@@ -34,8 +34,44 @@ namespace MAdmin
             {
                 Lbl_ad.Text = Session["Kullanici"].ToString();
                 listele();
+                
             }
                 
+
+        }
+
+        int id;
+        protected void update()
+        {
+            SqlCommand komut = new SqlCommand("update Teklif set Durum = @r1 where ID = '" + id + "' ", bgl.baglanti());
+            komut.Parameters.AddWithValue("@r1", "Onaylandı");
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            //if (e.CommandName != "indir") return;           
+            //if (e.CommandName != "Onayla") return;
+            
+
+            if (e.CommandName == "Onayla")
+            {
+                id = Convert.ToInt32(e.CommandArgument);
+                update();
+                listele();
+            }
+            else if (e.CommandName == "indir")
+            {
+                string yol = e.CommandArgument.ToString();
+                Response.Write("<script>alert('" + yol + "')</script>");
+            }
+            else
+            {
+                return;
+            }
+
+
 
         }
     }

@@ -45,7 +45,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Export, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Bootstrap.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -70,7 +82,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="404.html" />
+    <Content Include="analiztalebi.aspx" />
+    <Content Include="Recovery\404.html" />
+    <Content Include="Recovery\Deneme.aspx" />
+    <Content Include="FirmaEkle.aspx" />
     <Content Include="giris.aspx" />
     <Content Include="KayitOl.aspx" />
     <Content Include="NumuneGonder.aspx" />
@@ -78,10 +93,10 @@
     <Content Include="RaporEkle.aspx" />
     <Content Include="Teklif.aspx" />
     <Content Include="Anasayfa.aspx" />
-    <Content Include="blank.html" />
-    <Content Include="buttons.html" />
-    <Content Include="cards.html" />
-    <Content Include="charts.html" />
+    <Content Include="Recovery\blank.html" />
+    <Content Include="Recovery\buttons.html" />
+    <Content Include="Recovery\cards.html" />
+    <Content Include="Recovery\charts.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -90,7 +105,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
-    <Content Include="forgot-password.html" />
+    <Content Include="Recovery\forgot-password.html" />
     <Content Include="gulpfile.js" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="img\undraw_profile.svg" />
@@ -98,16 +113,16 @@
     <Content Include="img\undraw_profile_2.svg" />
     <Content Include="img\undraw_profile_3.svg" />
     <Content Include="img\undraw_rocket.svg" />
-    <Content Include="index.html" />
+    <Content Include="Recovery\index.html" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
     <Content Include="js\demo\chart-pie-demo.js" />
     <Content Include="js\demo\datatables-demo.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
-    <Content Include="login.html" />
+    <Content Include="Recovery\login.html" />
     <Content Include="Raporlar.aspx" />
-    <Content Include="register.html" />
+    <Content Include="Recovery\register.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -135,7 +150,6 @@
     <Content Include=".travis.yml" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <Content Include="Raporlar\GC.pdf" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -212,12 +226,12 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="tables.html" />
+    <Content Include="Recovery\tables.html" />
     <Content Include="TeklifEkle.aspx" />
-    <Content Include="utilities-animation.html" />
-    <Content Include="utilities-border.html" />
-    <Content Include="utilities-color.html" />
-    <Content Include="utilities-other.html" />
+    <Content Include="Recovery\utilities-animation.html" />
+    <Content Include="Recovery\utilities-border.html" />
+    <Content Include="Recovery\utilities-color.html" />
+    <Content Include="Recovery\utilities-other.html" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
@@ -2072,6 +2086,33 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="analiztalebi.aspx.cs">
+      <DependentUpon>analiztalebi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="analiztalebi.aspx.designer.cs">
+      <DependentUpon>analiztalebi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnalizTalep.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AnalizTalep.Designer.cs">
+      <DependentUpon>AnalizTalep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recovery\Deneme.aspx.cs">
+      <DependentUpon>Deneme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recovery\Deneme.aspx.designer.cs">
+      <DependentUpon>Deneme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FirmaEkle.aspx.cs">
+      <DependentUpon>FirmaEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FirmaEkle.aspx.designer.cs">
+      <DependentUpon>FirmaEkle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="giris.aspx.cs">
       <DependentUpon>giris.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2156,9 +2197,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AnalizTalep.resx">
+      <DependentUpon>AnalizTalep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Raporlar\" />
     <Folder Include="Teklifler\" />
   </ItemGroup>
   <PropertyGroup>

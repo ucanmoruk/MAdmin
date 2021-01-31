@@ -54,6 +54,21 @@ namespace MAdmin
             }
         }
 
+        string parola;
+        protected void parolaolustur()
+        {
+            char[] cr = "0123456789abcdefghijklmnopqrstuvwxyz".ToCharArray();
+            string result = string.Empty;
+            Random r = new Random();
+            for (int i = 0; i < 6; i++)
+            {
+                parola += cr[r.Next(0, cr.Length - 1)].ToString();
+            }
+
+
+
+        }
+
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName != "Open") return;
@@ -89,15 +104,16 @@ namespace MAdmin
 
                     if (FileUpload1.PostedFile.ContentLength < 30240000)
                     {
+                        parolaolustur();
                         //string fname = Txt_RaporNo.Text + ' ' + FileUpload1.FileName;
-                        string fname = Txt_RaporNo.Text + ".pdf";
+                        string fname = Txt_RaporNo.Text + "-"+parola+ ".pdf";
                         //string location = "Teklifler/";
                         //string path = System.IO.Path.Combine(location,fname);                                         
 
                         //FileUpload1.SaveAs(MapPath(path));
 
-                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~\\Raporlar\\" + fname.Trim()));
-                        string path = "~\\Uploadform\\" + fname.Trim();
+                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~\\Raporlar\\2021\\" + fname.Trim()));
+                        string path = "~\\Raporlar\\2021\\" + fname.Trim();
 
                         SqlCommand komut = new SqlCommand("insert into Rapor (FirmaAd, Proje, RaporNo, Tarih,NumuneTur,NumuneAd,Yol) values (@a1,@a7, @a2,@a3,@a4,@a5,@a6)", bgl.baglanti());
                         komut.Parameters.AddWithValue("@a1", list_firma.Text);
@@ -108,9 +124,9 @@ namespace MAdmin
                         komut.Parameters.AddWithValue("@a5", txt_ad.Text);
                         komut.Parameters.AddWithValue("@a6", path);
                         komut.ExecuteNonQuery();
-                        Txt_RaporNo.Text = "";
-                        txt_tur.Text = "";
-                        txt_ad.Text = "";
+                        //Txt_RaporNo.Text = "";
+                        //txt_tur.Text = "";
+                        //txt_ad.Text = "";
 
                         Div1.Visible = true;
                         listele();

@@ -13,18 +13,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>Mass | Fiyat Teklifleri</title>
+    <title>MASS Portal | Fiyat Teklifleri</title>
 
-    <!-- Custom fonts for this template-->
+ <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <%--<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">--%>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <%--<link href="css/sb-admin-2.min.css" rel="stylesheet">--%>
+<%--    <link href="css/sb-admin-2.min.css" rel="stylesheet">--%>
     <link href="css/sb-admin-2.css" rel="stylesheet" />
-</head>
+    </head>
 
 <body id="page-top">
     <form id="form1" runat="server">
@@ -39,10 +41,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Anasayfa.aspx">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-flask"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">MASS Portal</div>
+            <img class="logosidebar" src="img/logo-beyaz.png" />
             </a>
            
             <!-- Divider -->
@@ -62,7 +61,7 @@
              <a class="nav-link" href="Teklif.aspx"> <i class="fas fa-fw fa-envelope-open"></i> Teklifler</a></li>
                
 
-             <li class="nav-item">
+             <li class="nav-item ">
              <a class="nav-link" href="Raporlar.aspx"><i class="fas fa-fw fa-university"></i> Raporlar</a></li>
              
             <br />
@@ -71,11 +70,13 @@
                         
             <!-- Sidebar Message -->
             <div class="sidebar-card">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
+<%--                <img class="sidebar-card-illustration mb-2" src="img/favicon.png" alt="">--%>
                 <p class="text-center mb-2"><strong>MASS Portal</strong> ile talep oluşturabilir, tekliflerinize ve raporlarınıza ulaşabilirsiniz!</p>
-                <a class="btn btn-success btn-sm" href="#">Bize Ulaşın !</a>
+                <a class="btn btn-success btn-sm" target="_blank" href="https://www.masslab.com.tr/">Bize Ulaşın !</a>
             </div>
 
+            <br />
+            
         </ul>
         <!-- End of Sidebar -->
 
@@ -98,35 +99,27 @@
                     <ul class="navbar-nav ml-auto">                   
                    
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
+                           <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <asp:Label ID="Lbl_ad" runat="server" class="mr-2 d-none d-lg-inline text-gray-600 small" Text="Label"></asp:Label>
+                                <asp:Label ID="Lbl_ad" runat="server" Text="Label" class="mr-2 d-none d-lg-inline text-gray-600 small"></asp:Label>
+                               
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="profil.aspx">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profil
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Profil Bilgileri
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Çıkış Yap
                                 </a>
                             </div>
                         </li>
@@ -134,7 +127,6 @@
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -150,14 +142,13 @@
                                 </div>
                             </div>
 
-                     <div class="d-sm-flex align-items-center justify-content-between mb-4">     
+<%--                     <div class="d-sm-flex align-items-center justify-content-between mb-4">     
                          <h1 class="h3 mb-0 text-gray-800"></h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Teklif İndir</a>
-                    </div>
+                    </div>--%>
 
                
-
                           <!-- Collapsable Card1 -->
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Accordion -->
@@ -169,24 +160,25 @@
                                 <div class="collapse show" id="demo">
                                     <div class="card-body">
 
-                                        <asp:GridView ID="GridView1" class="table table-bordered" runat="server" AutoGenerateColumns="False">
+                                        <asp:GridView ID="GridView1" class="table table-bordered" runat="server" 
+                                            OnRowCommand="GridView1_RowCommand" AutoGenerateColumns="False">
                                             <Columns>
                                                 <asp:TemplateField HeaderText="Tarih">
                                               <ItemTemplate>
-                                                       <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:dd.mm.yyyy}") %>'></asp:Literal>  
+                                                       <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}") %>'></asp:Literal>  
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
 
                                                      <asp:TemplateField  HeaderText="Teklif No">  
                                                     <ItemTemplate>
-                                                    <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("TeklifNo") %>'></asp:Literal>    
+                                                    <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("TeklifNo") %>'></asp:Literal>    
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>
                                                 
                                                 <asp:TemplateField  HeaderText="Teklifi Veren">  
                                                     <ItemTemplate>
-                                                    <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("TeklifiVeren") %>'></asp:Literal>    
+                                                    <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("TeklifiVeren") %>'></asp:Literal>    
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>
@@ -194,15 +186,19 @@
                                                     <asp:TemplateField  HeaderText="Durum">
                                                     <ItemTemplate>
                                                         <asp:LinkButton ID="Btn_Onayla" runat="server" CausesValidation="false" 
-                                                        class="btn btn-success btn-sm" Text="Onayla" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />  
+                                                            Visible='<%# Eval("Durum").ToString() == "Onay Bekliyor" ? true : false %>'
+                                                        class="btn btn-success btn-sm" Text="Onayla" CommandName="Onayla" CommandArgument='<%# Eval("ID") %>' />  
+                                                         <asp:Literal ID="Literal4" runat="server" 
+                                                             Visible='<%# Eval("Durum").ToString() == "Onaylandı" ? true : false %>'
+                                                             Text='<%# Eval("Durum") %>'></asp:Literal>
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>
 
-                                                    <asp:TemplateField  HeaderText="İndir">
+                                                    <asp:TemplateField  HeaderText="Görüntüle">
                                                     <ItemTemplate>
-  <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
-                                                        class="btn btn-primary btn-sm" Text="İndir" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />  
+                                            <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
+                                                        class="btn btn-primary btn-sm" Text="Görüntüle" CommandName="indir" CommandArgument='<%# Eval("Yol") %>' />  
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>
@@ -239,21 +235,21 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Çıkış Yapıyorsunuz ?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Oturumunuzu sonlandırmak için "Çıkış Yap" butonuna basabilirsiniz.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Vazgeç</button>
+                    <a class="btn btn-primary" href="giris.aspx">Çıkış Yap</a>
                 </div>
             </div>
         </div>
@@ -280,6 +276,7 @@
 
 
         </div>
-    </form>
+    </div>
+            </div></form>
 </body>
 </html>

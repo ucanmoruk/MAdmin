@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NumuneGonder.aspx.cs" Inherits="MAdmin.NumuneGonder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="analiztalebi.aspx.cs" Inherits="MAdmin.analiztalebi" %>
 
 <!DOCTYPE html>
 
@@ -27,9 +27,9 @@
 </head>
 <body id="page-top">
     <form id="form1" runat="server">
-        <div>   
-                 <!-- Page Wrapper -->
-    <div id="wrapper">
+        <div>
+
+             <div id="wrapper">
           
   <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -48,7 +48,7 @@
             Anasayfa</a>
             </li>
 
-            <li class="nav-item active">
+            <li class="nav-item">
              <a class="nav-link" href="NumuneGonder.aspx"><i class="fas fa-fw fa-flask"></i> Numune Gönder</a></li>
             
                      
@@ -131,7 +131,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Analiz Talep Çizelgesi</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="paragraf">Raporlama ve faturalandırma işlemlerinin sorunsuz gerçekleşmesi için numuneleriniz ile ilgili aşağıdaki formu doldurmanız gerekmektedir.
+                                    <div class="paragraf">Seçim yaptığınız analiz talebi ile ilgili detayları burada görebilirsiniz. 
                                         </div>
                                 </div>
                             </div>
@@ -147,10 +147,7 @@
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse show" id="demo">
                                     <div class="card-body">
-                                        <div class="paragraf">
-                                         Test raporunuzda yer alacak firma bilgilerini buraya yazabilirsiniz. <br /> 
-                                         Sistem otomatik olarak üye girişi yaptığınız bilgileri getirecektir. Dilerseniz değişiklik yapabilirsiniz.
-                                        </div>
+                               
     <div class="input-group mb-3">                         
     <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">Firma Adı:</span> </div>  
@@ -188,10 +185,7 @@
                                 <div class="collapse show" id="collapseCardExample">
                                     <div class="card-body">
 
-                                        <div class="paragraf">
-                                         Faturalandırma işleminin yapılacağı firma bilgilerini buraya yazabilirsiniz. <br /> 
-                                         Sistem otomatik olarak üye girişi yaptığınız bilgileri getirecektir. Dilerseniz değişiklik yapabilirsiniz.
-                                        </div>
+                              
                                      
                                            <div class="input-group mb-3">                         
     <div class="input-group-prepend">
@@ -232,45 +226,27 @@
                                 <div class="collapse show" id="demo7">
                                     <div class="card-body">
 
-                                        <div class="paragraf">
-                                         Test raporunuz ile ilgili talepleri ve varsa ek notlarınızı buradan bize bildirebilirsiniz. <br /> 
-                                        </div>
+                                     
 
 
                                         <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                     <label class="input-group-text" for="inputGroupSelect01">Karar Kuralı:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </div>
-                                     <asp:DropDownList ID="DropDownList1"  class="form-control"  runat="server">
-                                         <asp:ListItem>Pozitif Y&#246;nde Uygulansın</asp:ListItem>
-                                         <asp:ListItem>Negatif Y&#246;nde Uygulansın</asp:ListItem>
-                                         <asp:ListItem Selected="True">Belirsizlik Dikkate Alınmasın</asp:ListItem>
-                                     </asp:DropDownList>
-                                   </div>
+                                 <asp:TextBox id="Txt_karar"  class="form-control"  runat="server" />
+                                        </div>
                                       
                                         <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                     <label class="input-group-text" for="inputGroupSelect01">Raporlama Dili:&nbsp;</label> </div>
-                                            <asp:DropDownList ID="DropDownList2"  class="form-control" runat="server">
-                                                <asp:ListItem Selected="True">Se&#231;iniz</asp:ListItem>
-                                                <asp:ListItem>T&#252;rk&#231;e</asp:ListItem>
-                                                <asp:ListItem>İngilizce</asp:ListItem>
-                                                <asp:ListItem>Hem T&#252;rk&#231;e Hem İngilizce</asp:ListItem>
-                                            </asp:DropDownList>
-
-                                        </div>
+                                   <asp:TextBox id="txt_dil"  class="form-control"  runat="server" /></div>
                                 
                                             <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                     <label class="input-group-text" for="inputGroupSelect01">İade Numune:&nbsp;&nbsp;&nbsp;</label> </div>
-                                                <asp:DropDownList ID="DropDownList3" class="form-control"  runat="server">
-                                                    <asp:ListItem Selected="True">Se&#231;iniz</asp:ListItem>
-                                                    <asp:ListItem>Evet</asp:ListItem>
-                                                    <asp:ListItem>Hayır</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
+                                    <asp:TextBox id="txt_iade"  class="form-control"  runat="server" /></div>
 
                                             <div class="input-group mb-3">   <div class="input-group-prepend">                   
-    <span class="input-group-text" id="basic-addon8">Üretici Firma:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
+    <span class="input-group-text" id="basic-addon8">Üretici Firma:&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
     <asp:TextBox id="txt_uretici"  class="form-control"  runat="server" /> </div>
 
                                         <div class="input-group mb-3"><div class="input-group-prepend">
@@ -296,30 +272,27 @@
 
   <asp:GridView ID="GridView1" runat="server" ShowFooter="true"  class="table table-bordered" AutoGenerateColumns="false">
                 <Columns>
-                    <asp:BoundField DataField="RowNumber" HeaderText="No" />
+                    
                     <asp:TemplateField HeaderText="Numune Adı">
                         <ItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" class="form-control" ></asp:TextBox>
+                            <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("Numune") %>'></asp:Literal> 
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Marka/Model/Artikel Vb.">
                         <ItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" class="form-control" ></asp:TextBox>
+                            <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("Ozellik") %>'></asp:Literal> 
                         </ItemTemplate>
                     </asp:TemplateField>
                       <asp:TemplateField HeaderText="Analiz">
                         <ItemTemplate>
-                            <asp:TextBox ID="TextBox3" runat="server" class="form-control" ></asp:TextBox>
+                            <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("Analiz") %>'></asp:Literal> 
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Metot">
                         <ItemTemplate>
-                            <asp:TextBox ID="TextBox4" runat="server" class="form-control" ></asp:TextBox>
+                            <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("Metot") %>'></asp:Literal> 
                         </ItemTemplate>
-                        <FooterStyle HorizontalAlign="Right" />
-                        <FooterTemplate>
-                            <asp:Button ID="ButtonAdd" runat="server"  class="btn btn-danger btn-sm"  Text="Satır Ekle" OnClick="Btn_SatirEkle_Click" />
-                        </FooterTemplate>
+                      
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
@@ -346,7 +319,7 @@
                                         <div class="input-group mb-3">
   <div class="input-group-prepend"> <div class="input-group-test">
       <asp:CheckBox ID="CheckBox1" runat="server"  /> &nbsp;&nbsp;&nbsp;
-      <a href="#" data-toggle="modal" data-target="#logoutsoz">Analiz talep sözleşmenizi</a> &nbsp; okudum, onaylıyorum.
+      <a href="#" data-toggle="modal" data-target="#logoutsoz">Analiz talep sözleşmenizi</a> &nbsp; okudum, onayladım.
     
         
       <%--<input type="checkbox" aria-label="Checkbox for following text input">--%>
@@ -356,21 +329,16 @@
                                             
   <%--<input type="text" class="form-control" aria-label="Text input with checkbox" placeholder="Numune gönderim sözleşmenizi okudum ve onaylıyorum.">--%>                                          
 </div> 
-                                        <div runat="server" id="theDiv">
-<div class="alert alert-warning alert-dismissible fade show">
-<%--    <center><button type="button" class="close" data-dismiss="alert">&times</button>--%>
-<asp:Button ID="Btn_kapat" runat="server" class="close"  Text="x" OnClick="Btn_kapat_Click"></asp:Button>
-    <center><strong>Lütfen sözleşmeyi onaylayınız.</strong> </center>
-  </div> </div>
+                                   
                                   
                                     </div>
                                 </div>                                   
                             </div>
                   
                     
-                    <div class="card shadow mb-4">
+                 <%--   <div class="card shadow mb-4">
                         <asp:Button ID="Btn_Ekle" runat="server" class="btn btn-primary" Text="Analiz Talep Oluştur" OnClick="Btn_Ekle_Click" />            
-                    <br /> </div>
+                    <br /> </div>--%>
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
@@ -454,6 +422,10 @@
 
         </div>
             
-   </div></div> </form>
+   </div>
+
+
+        </div>
+    </form>
 </body>
 </html>

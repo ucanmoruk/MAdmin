@@ -78,6 +78,8 @@
              <a class="nav-link" href="TeklifEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Teklif Ekle</a></li>
             <li class="nav-item">
              <a class="nav-link" href="RaporEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Rapor Ekle</a></li>
+                <li class="nav-item">
+             <a class="nav-link" href="FirmaEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Firma Ekle</a></li>
                    
             </div>
         </ul>
@@ -285,7 +287,7 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
+                     <%--   <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
@@ -301,9 +303,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                       <%-- <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -319,7 +321,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
@@ -331,14 +333,15 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">75 %</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        <asp:Label ID="lbl_rapor" runat="server" Text="0"></asp:Label> Adet</div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="progress progress-sm mr-2">
+                                                   <%-- <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            style="width: 100%" aria-valuenow="100" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
-                                                    </div>
+                                                    </div>--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -358,7 +361,8 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Analiz Talebi</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                               <asp:Label ID="lbl_analiz" runat="server" Text="0"></asp:Label> Adet</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -378,32 +382,42 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Analiz Talepleriniz</h6>
                                 </div>
                                 <div class="card-body">    <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Tarih</th>
-                                                <th>Raporlandırılacak Firma</th>
-                                                <th>Numune Sayısı</th>
-                                                <th>Detay</th>
-                                            </tr>
-                                        </thead>
-                                      
-                                        <tbody>
-                                            <tr>
-                                                <td>18.01.2021</td>
-                                                <td>Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.</td>
-                                                <td>4</td>
-                                                <td><button type="button" class="btn btn-success">Görüntüle</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>21.01.2021</td>
-                                                <td>Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.</td>
-                                                <td>2</td>
-                                                <td><button type="button" class="btn btn-success">Görüntüle</button></td>
-                                            </tr>
-                                                
-                                        </tbody>
-                                    </table>
+                                    
+                                     <asp:GridView ID="GridView1" class="table table-bordered" runat="server" 
+                                      OnRowCommand="GridView1_OnRowCommand"  AutoGenerateColumns="False">
+
+                                             <Columns>
+                                                 <asp:TemplateField HeaderText="Talep Tarihi">
+                                                     <ItemTemplate>
+                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}") %>'></asp:Literal>    
+                                                     </ItemTemplate>
+                                                 </asp:TemplateField>
+                                                 <asp:TemplateField HeaderText="Raporlandırılacak Firma">
+                                                     <ItemTemplate>
+                                                              <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("Firma") %>'></asp:Literal>    
+                                                     </ItemTemplate>
+                                                 </asp:TemplateField>
+                                                 <asp:TemplateField HeaderText="Numune Adedi">
+                                                     <ItemTemplate>
+                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("Adet") %>'></asp:Literal>    
+                                                     </ItemTemplate>
+                                                 </asp:TemplateField>                                                 
+                                                 <asp:TemplateField HeaderText="Görüntüle">
+                                                     <ItemTemplate>                                                             
+                                                   <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" 
+                                                        class="btn btn-primary btn-sm" Text="Görüntüle" CommandName="Goster" 
+                                                       OnClientClick="form1.target='_blank';" CommandArgument='<%# Eval("ID") %>' />                                                                                              
+                                                     </ItemTemplate>
+                                                 </asp:TemplateField>
+                                                 <asp:TemplateField HeaderText="İptal Et">
+                                                     <ItemTemplate>                                                             
+                                                   <asp:LinkButton ID="Btn_iptal" runat="server" CausesValidation="false"  OnRowCommand ="GridView1_OnRowCommand"
+                                                        class="btn btn-danger btn-sm" Text="İptal Et" CommandName="Pasif" CommandArgument='<%# Eval("ID") %>' />                                                                                              
+                                                     </ItemTemplate>
+                                                 </asp:TemplateField>
+
+                                            </Columns>
+                                         </asp:GridView>
                            
 
                                     
@@ -411,9 +425,17 @@
 
                                 </div></div>
                                  
-                                 
+                                   <div runat="server" id="divteklif" class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Fiyat Teklifleriniz</h6>
+                                </div>
+                                <div class="card-body">    
+                                  <p>Onaylanmayı bekleyen fiyat teklifleriniz bulunmaktadır. </p>  
+                                    Onaylamak için <a href="Teklif.aspx">fiyat teklifi</a> sayfamızı ziyaret edebilirsiniz.
                                      
-                            
+                            </div>
+
+                                </div>
 <%--
                     <div class="row">
 

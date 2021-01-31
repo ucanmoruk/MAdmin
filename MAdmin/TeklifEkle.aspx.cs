@@ -45,6 +45,20 @@ namespace MAdmin
 
             }
         }
+        string parola;
+        protected void parolaolustur()
+        {
+            char[] cr = "0123456789abcdefghijklmnopqrstuvwxyz".ToCharArray();
+            string result = string.Empty;
+            Random r = new Random();
+            for (int i = 0; i < 6; i++)
+            {
+                parola += cr[r.Next(0, cr.Length - 1)].ToString();
+            }
+
+
+
+        }
 
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -81,14 +95,15 @@ namespace MAdmin
 
                         if (FileUpload1.PostedFile.ContentLength < 30240000)
                         {
-                        string fname = Txt_TeklifNo.Text +' '+ FileUpload1.FileName;
+                        parolaolustur();
+                        string fname = Txt_TeklifNo.Text +" - "+ parola + ".pdf";
                         //string location = "Teklifler/";
                         //string path = System.IO.Path.Combine(location,fname);                                         
-                        
+
                         //FileUpload1.SaveAs(MapPath(path));
 
-                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~\\Teklifler\\" + fname.Trim()));
-                        string path = "~\\Uploadform\\" + fname.Trim();
+                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~\\Teklifler\\2021\\" + fname.Trim()));
+                        string path = "~\\Teklifler\\2021\\" + fname.Trim();
 
                         SqlCommand komut = new SqlCommand("insert into Teklif (FirmaAd, TeklifNo, Tarih,TeklifiVeren,Yol,Durum) values (@a1,@a2,@a3,@a4,@a5,@a6)", bgl.baglanti());
                         komut.Parameters.AddWithValue("@a1", list_firma.Text);
