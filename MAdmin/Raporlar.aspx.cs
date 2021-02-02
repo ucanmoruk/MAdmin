@@ -21,7 +21,7 @@ namespace MAdmin
             if (Session["Tur"].ToString() == "Admin")
             {
 
-                SqlCommand comm = new SqlCommand("select * from Rapor", bgl.baglanti());
+                SqlCommand comm = new SqlCommand("select * from Rapor order by Tarih desc", bgl.baglanti());
                 SqlDataReader dr = comm.ExecuteReader();
                 GridView1.DataSource = dr;
                 GridView1.DataBind();
@@ -31,7 +31,7 @@ namespace MAdmin
             {
 
 
-                SqlCommand comm = new SqlCommand("select * from Rapor where Proje=N'" + Lbl_ad.Text + "'", bgl.baglanti());
+                SqlCommand comm = new SqlCommand("select * from Rapor where Proje=N'" + Lbl_ad.Text + "' order by Tarih desc", bgl.baglanti());
                 SqlDataReader dr = comm.ExecuteReader();
                 GridView1.DataSource = dr;
                 GridView1.DataBind();
@@ -44,7 +44,7 @@ namespace MAdmin
 
               //  txtarama.Attributes.Add("placeholder", "Numune Adı");
 
-                SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd=N'" + Lbl_ad.Text + "'", bgl.baglanti());
+                SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd=N'" + Lbl_ad.Text + "' order by Tarih desc", bgl.baglanti());
                 SqlDataReader dr = comm.ExecuteReader();
                 GridView1.DataSource = dr;
                 GridView1.DataBind();
@@ -74,28 +74,59 @@ namespace MAdmin
 
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName != "Open") return;
-            string yol = e.CommandArgument.ToString();
-            // do something   
-            
-            if (yol != "")
-            {
-               // string FileName = "Durgesh.jpg";
+            //if (e.CommandName != "Open") return;
+            //string yol = e.CommandArgument.ToString();
+            //// do something   
 
-                System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
-                response.ClearContent();
-                response.Clear();
-                response.ContentType = "application/pdf";
-                response.AddHeader("Content-Disposition", "attachment; filename=" + yol +".pdf" + ";");
-                string path = yol + ".pdf";
-                response.TransmitFile(Server.MapPath("~\\Raporlar\\2021\\" + path));
-                response.Flush();
-                response.End();
-                
+            //if (yol != "")
+            //{
+            //   // string FileName = "Durgesh.jpg";
+
+            //    System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
+            //    response.ClearContent();
+            //    response.Clear();
+            //    response.ContentType = "application/pdf";
+            //    response.AddHeader("Content-Disposition", "attachment; filename=" + yol +".pdf" + ";");
+            //    string path = yol + ".pdf";
+            //    response.TransmitFile(Server.MapPath("~\\Raporlar\\2021\\" + path));
+            //    response.Flush();
+            //    response.End();
+
+            //}
+
+            if (e.CommandName == "Open")
+            {
+                string yol = e.CommandArgument.ToString();
+                string path = Server.MapPath("~\\Raporlar\\2021\\" + yol.Trim());
+                  WebClient User = new WebClient();
+
+                Byte[] ByteArray = User.DownloadData(path);
+
+                Response.Clear();
+                Response.Buffer = true;
+                Response.AddHeader("Content-Length", ByteArray.Length.ToString());
+                Response.AddHeader("Content-Disposition", "inline; filename =" + yol);
+                Response.AddHeader("Expires", "0");
+                Response.AddHeader("Pragma", "cache");
+                Response.AddHeader("Cache - Control", "private");
+                Response.ContentType = "application/pdf";
+                Response.BinaryWrite(ByteArray);
+                Response.Flush();
+                try { Response.End(); }
+                catch { }
+
+
+
             }
+            else
+            {
+
+            }
+            return;
+
         }
 
-     
+
         protected void Btn_Download_Click(object sender, EventArgs e)
         {
             //string FileName = "Durgesh.jpg";

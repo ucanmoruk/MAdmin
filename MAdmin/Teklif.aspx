@@ -198,7 +198,7 @@
                                                     <asp:TemplateField  HeaderText="Görüntüle">
                                                     <ItemTemplate>
                                             <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
-                                                        class="btn btn-primary btn-sm" Text="Görüntüle" CommandName="indir" CommandArgument='<%# Eval("Yol") %>' />  
+                                                        class="btn btn-primary btn-sm" Text="Görüntüle" OnClientClick="form1.target='_blank';"  CommandName="indir" CommandArgument='<%# Eval("Yol") %>' />  
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>

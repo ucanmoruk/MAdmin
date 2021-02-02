@@ -29,6 +29,7 @@ namespace MAdmin
                 Session["Kullanici"] = drd["Firma_Adi"].ToString();
                 Session["Kod"] = drd["Kod"].ToString();
                 Session["Tur"] = drd["Tur"].ToString();
+                Session["ID"] = drd["ID"].ToString();
                 Response.Redirect("Anasayfa.aspx?Kod="+txt_kod.Text);
 
                 //SqlCommand komutID = new SqlCommand("Select * from Kullanici where Kadi = N'" + kullaniciadi + "'", bgl.baglanti());

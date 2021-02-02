@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeklifEkle.aspx.cs" Inherits="MAdmin.TeklifEkle" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="404.aspx.cs" Inherits="MAdmin._404" %>
 
 <!DOCTYPE html>
 
@@ -11,13 +11,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MASS Portal | Teklif Ekle</title>
+    <title>MASS Portal | 404</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <%--<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">--%>
-
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
@@ -27,10 +24,10 @@
 </head>
 <body id="page-top">
     <form id="form1" runat="server">
-     
-     <div id="wrapper">
+        <div>
+            <div id="wrapper">
 
-        <!-- Sidebar -->
+  <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -71,8 +68,7 @@
 
         </ul>
         <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
+                  <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
@@ -119,120 +115,25 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
+                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                                      
                     <!-- Content Row -->
                     <div class="row">
-                    
-                            <!-- Approach -->
- <div class="card shadow mb-4">
- <div class="card-header py-3">
- <h6 class="m-0 font-weight-bold text-primary">Fiyat Teklifi Yükleme</h6>
- </div>
- <div class="card-body">    
 
-    <div class="input-group mb-3">                         
-    <div class="input-group-prepend">
-    <span class="input-group-text" >Firma Adı:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
-    <asp:DropDownList ID="list_firma" class="form-control" runat="server"></asp:DropDownList></div>
+              <div class="container-fluid">
 
-      <div class="input-group mb-3">
-<div class="input-group-prepend">
-<label class="input-group-text" for="inputGroupSelect01">Teklif Oluşturan:</label> </div>
- <asp:DropDownList ID="yetkili" class="form-control" runat="server">
-     <asp:ListItem>Seçiniz..</asp:ListItem>
-     <asp:ListItem>Oğuzhan EKER</asp:ListItem>
-     <asp:ListItem>Selin EKER</asp:ListItem>
-     <asp:ListItem>Tuğrul PEKER</asp:ListItem>
-     <asp:ListItem>Tunahan EKER</asp:ListItem>
- </asp:DropDownList></div>
+                    <!-- 404 Error Text -->
+                    <div class="text-center">
+                        <div class="error mx-auto" data-text="404">404</div>
+                        <p class="lead text-gray-800 mb-5">Sayfa Bulunamadı!</p>
+                        <p class="text-gray-500 mb-0">Görünüşe göre matrixte bir hata buldunuz...</p>
+                        <br /><a href="anasayfa.aspx">&larr; Anasayfaya Geri Dön</a>
+                    </div>
 
-     
-    <div class="input-group mb-3">                         
-    <div class="input-group-prepend">
-    <span class="input-group-text" >Teklif No - Tarih:</span> </div>          
-    <asp:TextBox ID="Txt_TeklifNo" runat="server"  class="form-control" ></asp:TextBox>
-    <asp:TextBox ID="Txt_tarih" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
-    </div>
-    
-     <div class="input-group mb-3">                         
-    <div class="input-group-prepend">
-    </div>  
-         <asp:FileUpload ID="FileUpload1" runat="server" class="input-group-text"/> </div>
+                </div>
 
-     <div class="input-group mb-3">                         
-    <div class="input-group-prepend btn-right">
-        <asp:Button ID="Btn_Firma"  class="btn btn-success btn-right" runat="server" Text="Teklif Yükle" OnClick="Btn_Firma_Click" />
-    </div></div>
-
-       <br />
-         
-          <div runat="server" id="Div1">
-<div class="alert alert-warning alert-dismissible fade show">
-<%--    <center><button type="button" class="close" data-dismiss="alert">&times</button>--%>
-<asp:Button ID="Button1" runat="server" class="close"  Text="x" OnClick="Button1_Click" ></asp:Button>
-    <center><strong>Dosya başarı ile yüklendi!</strong> </center>
-  </div> </div>
-
-</div></div></div>
-                                 
-
-                    
-                            <!-- Approach -->
- <div class="card shadow mb-4">
- <div class="card-header py-3">
- <h6 class="m-0 font-weight-bold text-primary">Fiyat Teklifleri</h6>
- </div>
- <div class="card-body">    
-
- <asp:GridView ID="GridView1" class="table table-bordered" runat="server" 
-                                             OnRowCommand="GridView1_OnRowCommand" AutoGenerateColumns="False">
-
-                                             <Columns>
-                                                 <asp:TemplateField HeaderText="Tarih">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Teklif No">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("TeklifNo") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Firma Adı">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("FirmaAd") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Teklifi Veren">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("TeklifiVeren") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                  <asp:TemplateField HeaderText="Durum">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal5" runat="server" Text='<%# Eval("Durum") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Görüntüle">
-                                                     <ItemTemplate>                                                             
-                                                  <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" 
-                                                        class="btn btn-primary btn-sm" Text="Görüntüle"  OnClientClick="form1.target='_blank';"  CommandName="Open" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Sil">
-                                                     <ItemTemplate>                                                             
-                                                  <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
-                                                        class="btn btn-danger btn-sm" Text="Sil" CommandName="TeklifSil" CommandArgument='<%# Eval("ID") %>' />                                                                                               
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                             </Columns>
-                                         </asp:GridView>
-
-</div></div>
-
-      
+</div>
                 <!-- /.container-fluid -->
 
             </div>
@@ -296,15 +197,8 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
-
-
-
-        </div>
-            
-        </div>
-        
-        </div>
+        </div></div>
     
-           </div> </form>
+    </form>
 </body>
 </html>

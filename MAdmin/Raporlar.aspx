@@ -185,8 +185,8 @@
                                                  </asp:TemplateField>                                                 
                                                  <asp:TemplateField HeaderText="Görüntüle">
                                                      <ItemTemplate>                                                             
-                                                  <asp:LinkButton ID="Btn_indir" runat="server" CausesValidation="false" 
-                                                        class="btn btn-primary btn-sm" Text="Görüntüle" CommandName="Open" CommandArgument='<%# Eval("RaporNo") %>' />                                                                                                      
+                                                  <asp:LinkButton ID="Btn_indir" runat="server" CausesValidation="false" OnClientClick="form1.target='_blank';" 
+                                                        class="btn btn-primary btn-sm" Text="Görüntüle" CommandName="Open" CommandArgument='<%# Eval("Yol") %>' />                                                                                                      
 <%--                                                    <asp:LinkButton ID="Btn_indir" runat="server" CausesValidation="false" 
                                                         class="btn btn-danger" Text="İndir1" CommandName="Download" CommandArgument='<%# Eval("Yol") %>' />        
                                                      <asp:LinkButton ID="Btn_Download" runat="server"  

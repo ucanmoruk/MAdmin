@@ -404,7 +404,7 @@
                                                  </asp:TemplateField>                                                 
                                                  <asp:TemplateField HeaderText="Görüntüle">
                                                      <ItemTemplate>                                                             
-                                                   <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" 
+                                                   <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" OnRowCommand ="GridView1_OnRowCommand"
                                                         class="btn btn-primary btn-sm" Text="Görüntüle" CommandName="Goster" 
                                                        OnClientClick="form1.target='_blank';" CommandArgument='<%# Eval("ID") %>' />                                                                                              
                                                      </ItemTemplate>

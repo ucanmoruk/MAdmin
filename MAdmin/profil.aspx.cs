@@ -11,6 +11,24 @@ namespace MAdmin
     public partial class profil : System.Web.UI.Page
     {
         SqlBaglanti bgl = new SqlBaglanti();
+
+        protected void listele()
+        {
+            SqlCommand komutID = new SqlCommand("Select * from Firma where Firma_Adi = N'" + Lbl_ad.Text + "' and Kod=N'" + Session["Kod"].ToString() + "' ", bgl.baglanti());
+            SqlDataReader drI = komutID.ExecuteReader();
+            while (drI.Read())
+            {
+                txt_adres.Text = drI["Adres"].ToString();
+                txt_vergid.Text = drI["Vergi_Dairesi"].ToString();
+                txt_vergin.Text = drI["Vergi_No"].ToString();
+                txt_mail.Text = drI["Mail"].ToString();
+                txt_telefon.Text = drI["Telefon"].ToString();
+                parola = drI["Parola"].ToString();
+
+            }
+            bgl.baglanti().Close();
+        }
+
         protected string parola;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,24 +38,16 @@ namespace MAdmin
             }               
             else
             {
-                theDiv.Visible = false;
-                Div1.Visible = false;
-                Lbl_ad.Text = Session["Kullanici"].ToString();
-                txt_ad.Text = Session["Kullanici"].ToString();
-                string kod = Session["Kod"].ToString();
-                SqlCommand komutID = new SqlCommand("Select * from Firma where Firma_Adi = N'" + Lbl_ad.Text + "' and Kod=N'"+kod+"' ", bgl.baglanti());
-                SqlDataReader drI = komutID.ExecuteReader();
-                while (drI.Read())
+                if (!Page.IsPostBack)
                 {
-                    txt_adres.Text = drI["Adres"].ToString();
-                    txt_vergid.Text = drI["Vergi_Dairesi"].ToString();
-                    txt_vergin.Text = drI["Vergi_No"].ToString();
-                    txt_mail.Text = drI["Mail"].ToString();
-                    txt_telefon.Text = drI["Telefon"].ToString();
-                    parola = drI["Parola"].ToString();
-             
+                    theDiv.Visible = false;
+                    Div1.Visible = false;
+                    Lbl_ad.Text = Session["Kullanici"].ToString();
+                    txt_ad.Text = Session["Kullanici"].ToString();
+                    string kod = Session["Kod"].ToString();
+                    listele();
                 }
-                bgl.baglanti().Close();
+               
 
             }
 
@@ -46,9 +56,10 @@ namespace MAdmin
         }
 
         protected void Btn_Firma_Click(object sender, EventArgs e)
-        {          
-                string kod = Session["Kod"].ToString();
-                SqlCommand komut = new SqlCommand("update Firma set Firma_Adi=@a1, Adres=@a2, Vergi_Dairesi=@a3, Vergi_No=@a4, Telefon=@a5, Mail=@a6 where Kod=N'" + kod + "'", bgl.baglanti());
+        {
+            string kod = Session["Kod"].ToString();
+            string ID = Session["ID"].ToString();
+            SqlCommand komut = new SqlCommand("update Firma set Firma_Adi=@a1, Adres=@a2, Vergi_Dairesi=@a3, Vergi_No=@a4, Telefon=@a5, Mail=@a6 where ID=N'" + ID + "'", bgl.baglanti());
                 komut.Parameters.AddWithValue("@a1", txt_ad.Text);
                 komut.Parameters.AddWithValue("@a2", txt_adres.Text);
                 komut.Parameters.AddWithValue("@a3", txt_vergid.Text);
@@ -56,14 +67,16 @@ namespace MAdmin
                 komut.Parameters.AddWithValue("@a5", txt_telefon.Text);
                 komut.Parameters.AddWithValue("@a6", txt_mail.Text);
                 komut.ExecuteNonQuery();
-
+                listele();
                Div1.Visible = true;
+
 
 
         }
 
         protected void btn_parola_Click(object sender, EventArgs e)
         {
+            listele();
             if (parola == Txt_old.Text)
             {
                 if (Txt_new1.Text == Txt_new2.Text)

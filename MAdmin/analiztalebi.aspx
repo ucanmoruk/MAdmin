@@ -361,25 +361,65 @@
         <i class="fas fa-angle-up"></i>
     </a>
                     
-
-             <!-- Sözleşme Modal-->
+ <!-- Sözleşme Modal-->
     <div class="modal fade" id="logoutsoz" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content-soz">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modallabel">Hizmet Sözleşmesi</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body-soz">hizmet sözleşme şartları burada yer almaktadır.</div>
+                <div class="modal-body-soz"> 
+1.	İşbu Sözleşmede Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş., bundan böyle MASS olarak; hizmet talep eden firma, kuruluş ve/veya kurum, bundan böyle Müşteri olarak tanımlanacaktır.
+<br />2.	İşbu Sözleşmede verilen bilgilerin güncel, doğru ve yeterli olduğu taraflarca kabul edilmiştir. Bilgilerde ekleme, silme, düzeltme vb. değişiklik talepleri olması durumunda, bu talebin laboratuvar teste başlamadan önce e- posta, gönderildi teyidi alınmış faks, iadeli taahhütlü posta veya kargo yoluyla MASS’a yazılı olarak bildirilmelidir. Aksi halde Aksi halde değişikliklerin yapılmamasından MASS’ın bir sorumluluğu doğmayacaktır.
+<br />3.	Taraflar bu Sözleşmenin şartlarına uygun çalışmayı peşinen kabul ederler. İşbu Sözleşmede belirtilen şartlarda, sadece MASS yetkili personeli tarafından imzalanmak kaydı ile değişiklik yapılabilir.
+<br />4.	İşbu Sözleşmenin geçerli olabilmesi için Müşterinin bu Belgeyi, kaşelemesi ve yetkili imzalı olarak MASS’a teslim etmesi gerekir. Bu şekilde, Müşterinin analizlerin gerçekleştirilmesi konusunda MASS’a onay verdiği taraflarca kabul edilir.
+<br />5.	MASS’ın müşterilerine sağladığı hizmete bağlı olarak, ürettiği tüm bilgiler ve belgeler (rapor, gözlem, telif hakkı dahil ve bununla sınırlı olmamak üzere her türlü bilgi) MASS tarafından saklanacaktır. Bunun istisnası ilgili T.C. Devlet kurum ve kuruluşları, T.C. Mahkemeleri ve TÜRKAK’dır. MASS, kanunen zorunlu olduğu veya sözleşmelerce yetkin kılındığı durumlarda, kanunen yasaklanmadıkça, müşteriyi veya ilgili şahsı açıklanacak bilgi konusunda yazılı olarak haberdar eder.
+<br />6.	Müşteriye ait bilgiler (firma bilgileri, numune bilgileri, analiz sonuçları ve analiz raporları) sadece “Analiz Talep Formu”nda müşteri tarafından, “Raporun İletileceği Kişi” kısmında belirtilen kişiye gönderilir. Müşterinin yazılı onayı olmadan üçüncü şahıslara verilmez.
+<br />7.	Müşteri, MASS Raporlarını, görüşlerini ve kendisine verilen diğer belgelerle bunların içeriklerini veya özetlerini MASS’ın onayını almadan çoğaltamaz, kopyalayamaz, yayımlayamaz, reklam amacıyla kullanamaz veya herhangi üçüncü bir tarafa ifşa edemez. Müşterinin çalışanları ve vekilleri de aynı şekilde, -müşteri ile iş akdi devam etsin veya etmesin- gizliliği koruyacaklarını ve MASS hizmetleri ile ilgili bilgileri yayınlamayacaklarını veya başka şekilde kullanmayacaklarını taahhüt ederler. 
+<br />8.	Müşteri analiz yöntemini/ standartını belirtmediği takdirde, MASS rutin olarak kullandığı analiz yöntemini/ standartını uygular.
+<br />9.	Analiz raporları, müşteri ile sözleşme aşamasında, Fiyat Teklif formunun, “Hizmet şartları”’na bağlı “İlave Şartlar” maddesi altında verilen karar kuralı beyanına uygun hazırlanmaktadır.
+<br />10.	Analizler sonucunda düzenlenen raporlar, analiz sonuçlarını, gerektiği taktirde söz konusu numunelere ilişkin MASS’ın görüşlerini içerir. Fakat numunelerin alındığı yığın hakkında herhangi bir görüşü belirtmez. Verilen Raporda yer alan bilgiler, MASS’a teslim edilen numunelerin analiz sonuçları ile sınırlıdır.
+<br />11.	Standart servislerde iptal talebi, Analiz Talep Formu’nun MASS’a iletilmesinden sonra 12 saat içinde, Ekspres servislerde 4 saat içinde yapılmalıdır. 24 Saat ve Aynı Gün servisler için iptal talebi kabul edilmez ve talep edilen analizlerin ücretleri faturalandırılır.
+<br />12.	Aksi belirtilmediği sürece numunenin veya numuneyi oluşturan parçaların (komponentlerin), birden fazla farklı malzeme ve/veya farklı renk içermesi durumunda, analizler her bir farklı malzeme ve/veya farklı renk için ayrı ayrı yapılır; ancak bazı test standartlarının izin verdiği “birleştirilmiş numune” çalışmaları yapılabilir.
+<br />13.	Fiyat teklifinde belirtilen fiyatlar, numunenin tek bir kısmı/parçası/bölümü için verilen analiz fiyatlarıdır. Üründe analize tabii tutulması ön görülen her kısım (her parça/ bölüm) için -Müşteri ile yapılacak mutabakattan sonra- ayrı ayrı ücret alınır. 
+<br />14.	Talep edilen analizler için “yeterli miktarda tek parça” numune gönderilmelidir. Numune miktarı konusunda MASS ile iletişime geçilmeli ve mutabakat sağlanmalıdır. Eksik miktarda numune gönderilmesi halinde analizlere başlanmaz veya numune miktarının yeterli olduğu analizlere müşteri onayı ile başlanabilir.
+<br />15.	Numunelerin analizlerden arta kalanları, müşteri tarafından önceden haber verilmesi şartı ile karşı ödemeli olarak müşteriye iade edilir. Bu takdirde müşterinin analiz raporunda yer alan sonuçlara itiraz hakkı yoktur.
+<br />16.	Analiz Raporunun yayınlandığı tarihten itibaren 1 yıl içerisinde müşteri tarafından herhangi bir itiraz ve/veya iddia ve/veya talepte bulunulmaması halinde, MASS, Müşteri nezdindeki bütün yükümlülüklerinden âri olacaktır. 
+<br />17.	Eğer taraflar arasında farklı bir anlaşma yapılmamış ise, MASS’ın fiyat listesinde yer alan ücretler geçerli olarak kabul edilir. MASS fiyat listesini her zaman, hiçbir sebep göstermeden revize etme hakkına sahiptir.
+<br />18.	Taraflar arasında sözleşme yapılmış ve Fiyat Teklif formu’nun Hizmet şartları- ilave şartlar kısmında mutabık kalınan maddeler belirtilmiş ise, bu maddeler, analiz talep formunda yer alan ilgili maddelerin yerine geçer. 
+<br />19.	Taraflar arasında farklı bir anlaşma yapılmamış ise, MASS’ın fiyat listesinde yer alan ücretler geçerli olarak kabul edilir. MASS fiyat listesini her zaman, hiçbir sebep göstermeden revize etme hakkına sahiptir. 
+<br />20.	MASS, işbu Sözleşme kapsamında gerçekleştireceği hizmet için gereklerini yerine getirirken gerekli titizliği, dikkati ve özeni gösterir. Hizmette doğabilecek her türlü yanlışlık, kayıp veya masrafların, MASS veya çalışanlarının hatasından kaynaklandığı ispat edilirse;  MASS’ın sorumluluğu, bu analiz raporunun hazırlanması için Müşteri tarafından MASS’a ödenmiş analiz ücretinin -faiz işletilmeksizin-  iade edilmesi ile sınırlı kalacaktır. Müşterinin, kâr kaybı, gelecek işlerin kaybı, üretim kaybı, marka değeri kaybı, ceza ödemelerinden doğacak kayıplar ve/veya müşterinin girdiği sözleşmelerin feshi dahil olmak üzere direkt veya dolaylı zararlarla ilgili hak iddia edilen durumlarda MASS’ın bir maddi yükümlüğü olmayacaktır. MASS, hazırlamış olduğu analiz raporundaki bir eksiklik veya hata nedeniyle, müşterinin veya her kim olursa olsun üçüncü kişilerin uğramış olduğu zararları ve fer’ilerini hiçbir şekilde tazminle yükümlü değildir.
+<br />21.	MASS, hizmetlerini doğal afet, savaş, terör, hükümet veya devlet sınırlaması, kanunla herhangi bir kısıtlama getirilmesi, grev, lokavt, makine arızası, işçi bulma sıkıntısı, yangın, kaza gibi nedenlerden ötürü yerine getirememe ve/veya geciktirme ve/veya bunların dışındaki herhangi bir nedenle yerine getirememe ve/veya geciktirme durumunda hiçbir sorumluluk üstlenmez ve/veya sorumlu tutulamaz. MASS, hizmetlerinin sağlanması için verdiği süreye uyamadığı durumda, müşteri tarafından uğranan kayıp veya zarardan, müşteriye karşı hiçbir maddi yükümlüğü olmayacaktır.
+<br />22.	MASS’ın kendisinden talep edilen hizmeti -hiçbir neden göstermeksizin- reddetme hakkı saklıdır.
+<br />23.	Hizmetin yerine getirilmesi sırasında, hizmetin sonuçlandırılması için –herhangi bir nedenle- bir ek süre ihtiyacı ve/veya bazı harcamaların ortaya çıkması halinde MASS’ın ek süre ve/veya ek ücret talep etme hakkı mahfuzdur. Müşteri, işbu ek ücreti ve ortaya çıkan bu ek süreyi kabul edecektir.
+<br />24.	MASS tarafından hizmetlerin yerine getirilmesine yönelik bütün sözleşmeler ve ekleri, T.C. Kanunlarına göre yorumlanacak ve bu kanunlara tabii olacaktır. Bu ve diğer Sözleşmelerin herhangi bir hakem veya davaya konu olması durumunda, Sözleşmelerin T.C.’de yapıldığı ve uygulandığı varsayılacaktır. Şartların içerdiği herhangi bir hükmün, herhangi bir şekilde yasalar nezdinde geçersiz, kanun dışı veya hükümsüz olduğu takdirde ve/veya böyle bir durumun oluşması halinde, işbu Şartların geriye kalan hükümlerinin geçerliliği, yasaya uygunluğu ve yürürlüğe konulabilirliği hiçbir şekilde etkilenmeyecektir veya bozulmayacaktır.
+<br />25.	MASS tarafından hizmetlerin yerine getirilmesi ile ilgili her türlü anlaşma ile ilgili olarak çıkan her türlü ihtilaf veya hak talebi; MASS’ın tek başına ve öncelikli olarak yasal işlemleri başlatma tasarrufuna tabi olarak, İstanbul - Bakırköy Mahkemelerini veya MASS’ın seçebileceği herhangi başka bir ülkenin mahkemelerini yetkili kılma hakkı saklı kalmak kaydı ile, tahkim yoluyla rücu edilecek ve belirlenecektir. Taraflar, bir hakemin görevlendirilmesi konusunda mutabık kalmak için yazılı bir başvuruda bulunduktan sonra bir sonuç alınamaması halinde, İstanbul Ticaret Odası Tahkim Kurulu tarafından bir hakemin görevlendirilmesi doğrultusunda anlaşabilirler. Tahkimin mahalli, İstanbul olacaktır. Tahkimde sadece bir Hakem bulunacaktır. Tahkim işlemlerinde kullanılacak dil, Türkçe olacaktır.   
+<br />26. Numunelere uygulanan analizlerin süreleri ve hizmetin şartları, “Talep Edilen Servis Türleri” bölümünde gösterilmiştir. Talep edilen analizlerin istenen servis süresine uygunluğu için MASS’ın mutabakatı şarttır. Bunun için MASS ile iletişime geçilmeli, mutabakat sağlanmalıdır.
+<br />•	“Standart servis” süresi numunenin teslimini takip eden 3 iş günüdür. Özel şartlara bağlı olarak bu süre farklı olabilir. 
+<br />•	“Ekspres servis” süresi 2 iş günüdür.  Numune kabulü saat 12:00’a kadar olup, %50 fiyat farkı uygulanır.
+<br />•	“24 Saat servis” süresi 24 saattir. Numune kabulü saat 12:00’a kadar olup %75 fiyat farkı uygulanır.
+<br />•	“Aynı gün servis” süresi gün bitimine kadardır. Numune kabulü saat 10:00’a kadar olup %100 fiyat farkı uygulanır.
+<br />Yukarıda belirtilen saatlerden sonra teslim edilen numuneler, ertesi gün işleme alınırlar. Cumartesi günü servis süresi içinde değildir. Standart servis haricindeki servis talepleriniz için lütfen teyit alınız. Raporlama, servis süresinin içindedir.
+<br />27.	Analizlerden artan ve/veya analiz edilmiş numuneler, Analiz Raporu tarihinden itibaren 15 gün süresince saklanır. Analiz raporu tarihinden 15 gün geçtikten sonra, kalan/kalmış olabilecek numunelerden tekrar analiz yapılmaz. Bu süreden sonra Analiz sonuçlarına yapılacak itirazlar geçersizdir.
+<br />28.	Yapılacak analizlere ve hizmetlere ait ücretler, müşteri tarafından peşin olarak ödenir. Rapor, ödeme yapıldıktan sonra müşteriye gönderilir. Ödemenin yapılmaması halinde, MASS ödeme yapılıncaya kadar analiz hizmetlerine başlamama veya analiz raporunu müşteriye iletmeme hakkına sahiptir.
+<br />29.	Değerlendirmenin (Uygunluk Beyanının) ve karar kuralının neye göre yapılacağı/uygulanacağı müşteri tarafından beyan edilmelidir. Bu durumda işbu beyan feragatname olarak kabul edilir.
+
+
+
+
+
+                </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Kapat</button>                    
                 </div>
             </div>
         </div>
     </div>
+
 
      <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

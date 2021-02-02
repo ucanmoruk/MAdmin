@@ -134,8 +134,28 @@ namespace MAdmin
                     komutz.Parameters.AddWithValue("@o1", "Pasif");
                     komutz.ExecuteNonQuery();
                     bgl.baglanti().Close();
-                    GridListele();
-                    listele();
+                    if (Session["Tur"].ToString() == "Admin")
+                    {
+                        divadmin.Visible = true;
+                        GridView1.Columns[1].HeaderText = "Talep Sahibi";
+                        adminlistele();
+                        adminsay();
+                    }
+                    else
+                    {
+                        GridListele();
+                        listele();
+                        divadmin.Visible = false;
+                        if (durum == 0)
+                        {
+                            divteklif.Visible = false;
+                        }
+                        else
+                        {
+                            divteklif.Visible = true;
+                        }
+                    }
+
                 }
             }
             else if (e.CommandName == "Goster")

@@ -210,7 +210,7 @@
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Proje">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("Proje") %>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal13" runat="server" Text='<%# Eval("Proje") %>'></asp:Literal>    
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Numune Türü">
@@ -223,16 +223,16 @@
                                                               <asp:Literal ID="Literal5" runat="server" Text='<%# Eval("NumuneAd") %>'></asp:Literal>    
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="İndir">
+                                                 <asp:TemplateField HeaderText="Görüntüle">
                                                      <ItemTemplate>                                                             
                                                   <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" 
-                                                        class="btn btn-primary btn-sm" Text="İndir" CommandName="Open" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
+                                                        class="btn btn-primary btn-sm" OnClientClick="form1.target='_blank';" Text="Görüntüle" CommandName="Open" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Sil">
                                                      <ItemTemplate>                                                             
                                                   <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
-                                                        class="btn btn-success btn-sm" Text="Sil" CommandName="Delete" CommandArgument='<%# Eval("Yol") %>' />                                                                                               
+                                                        class="btn btn-danger btn-sm" Text="Sil" CommandName="RaporSil" CommandArgument='<%# Eval("ID") %>' />                                                                                               
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                              </Columns>

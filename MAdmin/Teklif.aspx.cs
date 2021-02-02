@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -64,7 +65,23 @@ namespace MAdmin
             else if (e.CommandName == "indir")
             {
                 string yol = e.CommandArgument.ToString();
-                Response.Write("<script>alert('" + yol + "')</script>");
+                string path = Server.MapPath("~\\Teklifler\\2021\\" + yol.Trim());
+                WebClient User = new WebClient();
+
+                Byte[] ByteArray = User.DownloadData(path);
+
+                Response.Clear();
+                Response.Buffer = true;
+                Response.AddHeader("Content-Length", ByteArray.Length.ToString());
+                Response.AddHeader("Content-Disposition", "inline; filename =" + yol);
+                Response.AddHeader("Expires", "0");
+                Response.AddHeader("Pragma", "cache");
+                Response.AddHeader("Cache - Control", "private");
+                Response.ContentType = "application/pdf";
+                Response.BinaryWrite(ByteArray);
+                Response.Flush();
+                try { Response.End(); }
+                catch { }
             }
             else
             {

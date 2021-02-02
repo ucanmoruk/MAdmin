@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="profil.aspx.cs" Inherits="MAdmin.profil" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Profil.aspx.cs" Inherits="MAdmin.profil" %>
 
 <!DOCTYPE html>
 
@@ -100,7 +100,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="profil.aspx">
+                                <a class="dropdown-item" href="Profil.aspx">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profil Bilgileri
                                 </a>
@@ -132,17 +132,17 @@
 
     <div class="input-group mb-3">                         
     <div class="input-group-prepend">
-    <span class="input-group-text" >Firma Adı:</span> </div>  
+    <span class="input-group-text" id="basic-addon1">Firma Adı:</span> </div>  
     <asp:TextBox id="txt_ad"  class="form-control"  runat="server" /> </div>
 
      <div class="input-group mb-3">                         
     <div class="input-group-prepend">
-    <span class="input-group-text" >Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
+    <span class="input-group-text" id="basic-addon2">Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
     <asp:TextBox id="txt_adres"  class="form-control"  runat="server" /> </div>
 
   <div class="input-group mb-3">
   <div class="input-group-prepend">
-  <span class="input-group-text">Vergi Dairesi - Vergi/TC No:</span>
+  <span class="input-group-text" id="basic-addon3">Vergi Dairesi - Vergi/TC No:</span>
   </div>
       <asp:TextBox id="txt_vergid"  class="form-control"  runat="server" />
       <asp:TextBox id="txt_vergin"  class="form-control"  runat="server" />
@@ -150,11 +150,11 @@
      
     <div class="input-group mb-3">                         
     <div class="input-group-prepend">
-    <span class="input-group-text" >Telefon:&nbsp;&nbsp;&nbsp;</span> </div>  
+    <span class="input-group-text" id="basic-addon4">Telefon:&nbsp;&nbsp;&nbsp;</span> </div>  
     <asp:TextBox id="txt_telefon"  class="form-control"  runat="server" /> </div>
                                       <div class="input-group mb-3">                         
     <div class="input-group-prepend">
-    <span class="input-group-text" >Mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
+    <span class="input-group-text" id="basic-addon5">Mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  
     <asp:TextBox id="txt_mail"  class="form-control"  runat="server" /> </div>
 
      <div class="input-group mb-3">                         
@@ -193,7 +193,7 @@
      
     <div class="input-group mb-3">                         
     <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1">Yeni Parola:&nbsp;&nbsp;&nbsp;</span> </div>  
+    <span class="input-group-text" id="basic-3">Yeni Parola:&nbsp;&nbsp;&nbsp;</span> </div>  
     <asp:TextBox id="Txt_new2" type="password" class="form-control"  runat="server" /> </div>
               
      <div class="input-group mb-3">                         
