@@ -9,13 +9,14 @@ using System.IO;
 using System.Net;
 using System.Configuration;
 using System.Data;
+using System.Text;
 
 namespace MAdmin
 {
     public partial class Raporlar : System.Web.UI.Page
     {
         SqlBaglanti bgl = new SqlBaglanti();
-        
+
         protected void listele()
         {
             if (Session["Tur"].ToString() == "Admin")
@@ -42,7 +43,7 @@ namespace MAdmin
             else
             {
 
-              //  txtarama.Attributes.Add("placeholder", "Numune Adı");
+                //  txtarama.Attributes.Add("placeholder", "Numune Adı");
 
                 SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd=N'" + Lbl_ad.Text + "' order by Tarih desc", bgl.baglanti());
                 SqlDataReader dr = comm.ExecuteReader();
@@ -65,7 +66,7 @@ namespace MAdmin
                 Lbl_ad.Text = Session["Kullanici"].ToString();
                 listele();
             }
-                       
+
             //textbox arama yapabilirsin
             // https://www.aspsnippets.com/Articles/Search-and-Filter-GridView-on-TextBox-OnTextChanged-event-in-ASPNet-using-C-and-VBNet.aspx
 
@@ -97,25 +98,39 @@ namespace MAdmin
             if (e.CommandName == "Open")
             {
                 string yol = e.CommandArgument.ToString();
-                string path = Server.MapPath("~\\Raporlar\\2021\\" + yol.Trim());
-                  WebClient User = new WebClient();
+                string path = Server.MapPath("~/Raporlar/2021/" + yol.Trim());
 
-                Byte[] ByteArray = User.DownloadData(path);
+                using (WebClient client = new WebClient())
+                {
+                    System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                    Byte[] s = client.DownloadData(path);
 
-                Response.Clear();
-                Response.Buffer = true;
-                Response.AddHeader("Content-Length", ByteArray.Length.ToString());
-                Response.AddHeader("Content-Disposition", "inline; filename =" + yol);
-                Response.AddHeader("Expires", "0");
-                Response.AddHeader("Pragma", "cache");
-                Response.AddHeader("Cache - Control", "private");
-                Response.ContentType = "application/pdf";
-                Response.BinaryWrite(ByteArray);
-                Response.Flush();
-                try { Response.End(); }
-                catch { }
+                    if (s != null && s.Length > 1)
+                    {
+                        Response.Clear();
+                        Response.ClearHeaders();
+                        Response.ClearContent();
+                        Response.Charset = "UTF-8";
+                        Response.Buffer = true;
+                        Response.AddHeader("Content-Disposition", "inline; filename=\"" + yol + "\"");
+                        Response.ContentType = "application/pdf";
+                        Response.BinaryWrite(s);
+                        Response.Flush();
+                        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                        try
+                        {
+                            Response.End();
+                        }
+                        catch { }
+                    }
+                    else
+                    {
 
+                    }
+                }
 
+                //Byte[] s = new WebClient().DownloadData(path);
+                //   System.IO.MemoryStream ms = new System.IO.MemoryStream(s);
 
             }
             else
@@ -143,45 +158,45 @@ namespace MAdmin
 
         protected void arama()
         {
-            //if (Session["Tur"].ToString() == "Admin")
-            //{
-            //    SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd = '"+txtarama.Text+"'", bgl.baglanti());
-            //    SqlDataReader dr = comm.ExecuteReader();
-            //    GridView1.DataSource = dr;
-            //    GridView1.DataBind();
-            //    bgl.baglanti().Close();
-            //}
-            //else if (Session["Tur"].ToString() == "Proje")
-            //{
-            //    SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd = '" + txtarama.Text + "'", bgl.baglanti());
-            //    SqlDataReader dr = comm.ExecuteReader();
-            //    GridView1.DataSource = dr;
-            //    GridView1.DataBind();
-            //    bgl.baglanti().Close();
-            //}
-            //else
-            //{
-            //    SqlCommand comm = new SqlCommand("select * from Rapor where NumuneAd = '" + txtarama.Text + "'", bgl.baglanti());
-            //    SqlDataReader dr = comm.ExecuteReader();
-            //    GridView1.DataSource = dr;
-            //    GridView1.DataBind();
-            //    bgl.baglanti().Close();
+            if (Session["Tur"].ToString() == "Admin")
+            {
+                SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd = '" + txtarama.Text + "'", bgl.baglanti());
+                SqlDataReader dr = comm.ExecuteReader();
+                GridView1.DataSource = dr;
+                GridView1.DataBind();
+                bgl.baglanti().Close();
+            }
+            else if (Session["Tur"].ToString() == "Proje")
+            {
+                SqlCommand comm = new SqlCommand("select * from Rapor where FirmaAd = '" + txtarama.Text + "'", bgl.baglanti());
+                SqlDataReader dr = comm.ExecuteReader();
+                GridView1.DataSource = dr;
+                GridView1.DataBind();
+                bgl.baglanti().Close();
+            }
+            else
+            {
+                SqlCommand comm = new SqlCommand("select * from Rapor where NumuneAd = '" + txtarama.Text + "'", bgl.baglanti());
+                SqlDataReader dr = comm.ExecuteReader();
+                GridView1.DataSource = dr;
+                GridView1.DataBind();
+                bgl.baglanti().Close();
 
-            //}
+            }
         }
 
-        //protected void txtarama_TextChanged(object sender, EventArgs e)
-        //{
-                  
-        //    if (txtarama.Text != null)
-        //    {
-        //        arama();
-        //    }
-        //    else
-        //    {
-        //        listele();
-        //    }
+        protected void txtarama_TextChanged(object sender, EventArgs e)
+        {
 
-        //}
+            if (txtarama.Text != null)
+            {
+                arama();
+            }
+            else
+            {
+                listele();
+            }
+
+        }
     }
 }

@@ -132,6 +132,12 @@
  </div>
  <div class="card-body">    
 
+     <div class="input-group mb-3">                         
+    <div class="input-group-prepend">
+    <span class="input-group-text" >Rapor Numarası ile seçim yap:</span> </div>  
+    <asp:DropDownList ID="list_raporno" class="form-control" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="list_raporno_SelectedIndexChanged"></asp:DropDownList></div>
+
+     <hr />
     <div class="input-group mb-3">                         
     <div class="input-group-prepend">
     <span class="input-group-text" >Firma Adı:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </div>  

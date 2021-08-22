@@ -31,6 +31,15 @@ namespace MAdmin {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divadmin;
         
         /// <summary>
+        /// divadmin2 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik üretilmiş alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divadmin2;
+        
+        /// <summary>
         /// Lbl_ad denetimi.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,24 @@ namespace MAdmin {
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_analiz;
+        
+        /// <summary>
+        /// durumdiv denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik üretilmiş alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl durumdiv;
+        
+        /// <summary>
+        /// durumlistesi denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik üretilmiş alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList durumlistesi;
         
         /// <summary>
         /// GridView1 denetimi.

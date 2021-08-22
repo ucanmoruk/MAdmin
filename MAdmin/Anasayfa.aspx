@@ -74,12 +74,18 @@
             <br />
             <div runat="server" id="divadmin">
             <hr class="sidebar-divider my-0">
-              <li class="nav-item">
-             <a class="nav-link" href="TeklifEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Teklif Ekle</a></li>
             <li class="nav-item">
              <a class="nav-link" href="RaporEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Rapor Ekle</a></li>
-                <li class="nav-item">
-             <a class="nav-link" href="FirmaEkle.aspx"><i class="fas fa-fw fa-file-upload"></i> Firma Ekle</a></li>
+              
+                   
+            </div>
+
+               <br />
+            <div runat="server" id="divadmin2">
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+             <a class="nav-link" href="Sorgu.aspx"><i class="fas fa-fw fa-file-upload"></i> Stok Sorgu</a></li>
+              
                    
             </div>
         </ul>
@@ -383,44 +389,78 @@
                                 </div>
                                 <div class="card-body">    <div class="table-responsive">
                                     
-                                     <asp:GridView ID="GridView1" class="table table-bordered" runat="server" 
-                                      OnRowCommand="GridView1_OnRowCommand"  AutoGenerateColumns="False">
+                                    <div id="durumdiv" runat="server"><div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Talep Durumu Güncelle:</span>
+                                        </div>
+                                        <asp:DropDownList ID="durumlistesi" class="form-control" runat="server">
+                                        <asp:ListItem Value="Numune Bekleniyor" Selected="True"></asp:ListItem>
+                                        <asp:ListItem Value="Numune Kabul Edildi"></asp:ListItem>
+                                        <asp:ListItem Value="Analiz Aşamasında"></asp:ListItem>
+                                        <asp:ListItem Value="Ödeme Bekleniyor"></asp:ListItem>
+                                        <asp:ListItem Value="Raporlandı"></asp:ListItem>
+                                        </asp:DropDownList>
+                                        </div></div>
 
-                                             <Columns>
-                                                 <asp:TemplateField HeaderText="Talep Tarihi">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Raporlandırılacak Firma">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("Firma") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Numune Adedi">
-                                                     <ItemTemplate>
-                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("Adet") %>'></asp:Literal>    
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>                                                 
-                                                 <asp:TemplateField HeaderText="Görüntüle">
-                                                     <ItemTemplate>                                                             
-                                                   <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" OnRowCommand ="GridView1_OnRowCommand"
-                                                        class="btn btn-primary btn-sm" Text="Görüntüle" CommandName="Goster" 
-                                                       OnClientClick="form1.target='_blank';" CommandArgument='<%# Eval("ID") %>' />                                                                                              
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="İptal Et">
-                                                     <ItemTemplate>                                                             
-                                                   <asp:LinkButton ID="Btn_iptal" runat="server" CausesValidation="false"  OnRowCommand ="GridView1_OnRowCommand"
-                                                        class="btn btn-danger btn-sm" Text="İptal Et" CommandName="Pasif" CommandArgument='<%# Eval("ID") %>' />                                                                                              
-                                                     </ItemTemplate>
-                                                 </asp:TemplateField>
+                                        
+                                    
+                                    <hr />
+                                        <asp:GridView ID="GridView1" class="table table-bordered" runat="server"
+                                            OnRowCommand="GridView1_OnRowCommand" AutoGenerateColumns="False">
+
+                                            <Columns>
+                                                <asp:TemplateField HeaderText="Talep No">
+                                                    <ItemTemplate>
+                                                        <asp:Literal ID="Literal01" runat="server" Text='<%#"MT"+ Eval("TalepNo") %>'></asp:Literal>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Talep Tarihi">
+                                                    <ItemTemplate>
+                                                        <asp:Literal ID="Literal1" runat="server" Text='<%# Eval("Tarih","{0:d}") %>'></asp:Literal>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Raporlandırılacak Firma">
+                                                    <ItemTemplate>
+                                                        <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("Firma") %>'></asp:Literal>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Numune Adedi">
+                                                    <ItemTemplate>
+                                                        <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("Adet") %>'></asp:Literal>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Durum">
+                                                    <ItemTemplate>
+                                                        <asp:Literal ID="Literal13" runat="server" Text='<%# Eval("Durum") %>'></asp:Literal>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField HeaderText="Güncelle">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="Btn_guncelle" runat="server" CausesValidation="false" OnRowCommand="GridView1_OnRowCommand"
+                                                            class="btn btn-warning btn-sm" Text="Güncelle" CommandName="Guncelle"
+                                                            CommandArgument='<%# Eval("ID") %>' />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Görüntüle">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="Btn_Indir" runat="server" CausesValidation="false" OnRowCommand="GridView1_OnRowCommand"
+                                                            class="btn btn-primary btn-sm" Text="Görüntüle" CommandName="Goster"
+                                                            OnClientClick="form1.target='_blank';" CommandArgument='<%# Eval("ID") %>' />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="İptal Et">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="Btn_iptal" runat="server" CausesValidation="false" OnRowCommand="GridView1_OnRowCommand"
+                                                            class="btn btn-danger btn-sm" Text="İptal" CommandName="Pasif" CommandArgument='<%# Eval("ID") %>' />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
 
                                             </Columns>
-                                         </asp:GridView>
-                           
+                                        </asp:GridView>
 
-                                    
+
+
                                     </div>
 
                                 </div></div>

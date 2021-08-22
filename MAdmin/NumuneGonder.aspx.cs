@@ -43,6 +43,7 @@ namespace MAdmin
                         txt_vn.Text = drI["Vergi_No"].ToString();
                     }
                     bgl.baglanti().Close();
+                   
                 }
                 //string name = "Name";
                 //DataTable dt = new DataTable();
@@ -154,6 +155,19 @@ namespace MAdmin
             }
         }
 
+        int talepn, talepno;
+        protected void talepbul()
+        {
+            SqlCommand komutID = new SqlCommand("select MAX(TalepNo) from Talep", bgl.baglanti());
+            SqlDataReader drI = komutID.ExecuteReader();
+            while (drI.Read())
+            {
+                talepn = Convert.ToInt32(drI[0].ToString());
+                talepno = talepn + 1;
+            }
+            bgl.baglanti().Close();
+        }
+
         string foto, kod;
         protected void Btn_Ekle_Click(object sender, EventArgs e)
         {
@@ -165,13 +179,14 @@ namespace MAdmin
                 string karar = DropDownList1.SelectedValue.ToString();
                 string dil = DropDownList2.SelectedValue.ToString();
                 string iade = DropDownList3.SelectedValue.ToString();
-
-                SqlCommand komutz = new SqlCommand("insert into Talep (Tarih,FirmaKodu,Sozlesme,Durum) values (@a1,@a2,@a3,@a4)" +
+                talepbul();
+                SqlCommand komutz = new SqlCommand("insert into Talep (Tarih,FirmaKodu,Sozlesme,Durum,TalepNo) values (@a1,@a2,@a3,@a4,@a5)" +
                     " SET @ID=SCOPE_IDENTITY();", bgl.baglanti());
                 komutz.Parameters.AddWithValue("@a1", DateTime.Now);
                 komutz.Parameters.AddWithValue("@a2", kod);
                 komutz.Parameters.AddWithValue("@a3", 1);
-                komutz.Parameters.AddWithValue("@a4", "Aktif");
+                komutz.Parameters.AddWithValue("@a4", "Numune Bekleniyor");
+                komutz.Parameters.AddWithValue("@a5", talepno);
                 komutz.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                 //int TalepID = Convert.ToInt32(komutz.ExecuteScalar());

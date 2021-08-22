@@ -31,6 +31,15 @@ namespace MAdmin {
         protected global::System.Web.UI.WebControls.Label Lbl_ad;
         
         /// <summary>
+        /// list_raporno denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik üretilmiş alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList list_raporno;
+        
+        /// <summary>
         /// list_firma denetimi.
         /// </summary>
         /// <remarks>

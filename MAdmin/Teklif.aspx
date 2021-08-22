@@ -171,14 +171,37 @@
 
                                                      <asp:TemplateField  HeaderText="Teklif No">  
                                                     <ItemTemplate>
-                                                    <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("TeklifNo") %>'></asp:Literal>    
+                                                    <asp:Literal ID="Literal2" runat="server" Text='<%#"MT1" + Eval("TeklifNo") %>'></asp:Literal>    
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>
                                                 
                                                 <asp:TemplateField  HeaderText="Teklifi Veren">  
                                                     <ItemTemplate>
-                                                    <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("TeklifiVeren") %>'></asp:Literal>    
+                                                    <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("Ad") %>'></asp:Literal>    
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+
+                                                   <asp:TemplateField  HeaderText="Proje">  
+                                                    <ItemTemplate>
+                                                    <asp:Literal ID="Literal33" runat="server" Text='<%# Eval("Proje") %>'></asp:Literal>    
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+
+                                                 <asp:TemplateField  HeaderText="Firma">  
+                                                    <ItemTemplate>
+                                                    <asp:Literal ID="Literal34" runat="server" Text='<%# Eval("Firma") %>'></asp:Literal>    
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+
+
+
+                                                <asp:TemplateField  HeaderText="Açıklama">  
+                                                    <ItemTemplate>
+                                                    <asp:Literal ID="Literal14" runat="server" Text='<%# Eval("Aciklama") %>'></asp:Literal>    
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>
@@ -186,7 +209,7 @@
                                                     <asp:TemplateField  HeaderText="Durum">
                                                     <ItemTemplate>
                                                         <asp:LinkButton ID="Btn_Onayla" runat="server" CausesValidation="false" 
-                                                            Visible='<%# Eval("Durum").ToString() == "Onay Bekliyor" ? true : false %>'
+                                                            Visible='<%# Eval("Durum").ToString() == "Aktif" ? true : false %>'
                                                         class="btn btn-success btn-sm" Text="Onayla" CommandName="Onayla" CommandArgument='<%# Eval("ID") %>' />  
                                                          <asp:Literal ID="Literal4" runat="server" 
                                                              Visible='<%# Eval("Durum").ToString() == "Onaylandı" ? true : false %>'
@@ -198,7 +221,7 @@
                                                     <asp:TemplateField  HeaderText="Görüntüle">
                                                     <ItemTemplate>
                                             <asp:LinkButton ID="Btn_Sil" runat="server" CausesValidation="false" 
-                                                        class="btn btn-primary btn-sm" Text="Görüntüle" OnClientClick="form1.target='_blank';"  CommandName="indir" CommandArgument='<%# Eval("Yol") %>' />  
+                                                        class="btn btn-primary btn-sm" Text="Görüntüle"  CommandName="goster" CommandArgument='<%# Eval("TeklifNo") %>' />  
                                                     </ItemTemplate>   
                                                     <ItemStyle  VerticalAlign="Middle"></ItemStyle>
                                                 </asp:TemplateField>
@@ -210,7 +233,57 @@
                                 </div>
                             </div>
                     
+                        <!-- Collapsable Card2 -->
+                    <div id="teklifdiv" runat="server">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample" data-target="#demo3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Fiyat Teklifi Detayları</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="demo3">
+                                    <div class="card-body">
+                                        <asp:Label ID="lbl_tarih" runat="server" Text="Label"></asp:Label> tarihinde 
+                                        "<asp:Label ID="lbl_kisi" runat="server" Text="Label"></asp:Label>" tarafından oluşturulan fiyat teklifinizin detayları
+                                        aşağıdaki gibidir.
+                                        <br /><hr />
+                                        <asp:GridView ID="GridView2" class="table table-bordered" runat="server" 
+                                          AutoGenerateColumns="False">
+                                            <Columns>
+                                                <asp:TemplateField HeaderText="Analiz / Ürün Adı">
+                                              <ItemTemplate>
+                                                       <asp:Literal ID="Literal5" runat="server" Text='<%# Eval("Fiyat Teklifi") %>'></asp:Literal>  
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
 
+                                                 <asp:TemplateField HeaderText="Metot / Açıklama">
+                                              <ItemTemplate>
+                                                       <asp:Literal ID="Literal5" runat="server" Text='<%# Eval("Açıklama") %>'></asp:Literal>  
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                     <asp:TemplateField  HeaderText="Fiyat">  
+                                                    <ItemTemplate>
+                                                    <asp:Literal ID="Literal6" runat="server" Text='<%# Eval("Fiyat") %>'></asp:Literal>    
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+                                                
+                                                <asp:TemplateField  HeaderText="Birim">  
+                                                    <ItemTemplate>
+                                                    <asp:Literal ID="Literal7" runat="server" Text='<%# Eval("Birim") %>'></asp:Literal>    
+                                                    </ItemTemplate>   
+                                                    <ItemStyle  VerticalAlign="Middle"></ItemStyle>
+                                                </asp:TemplateField>
+
+                                            </Columns>
+                                        </asp:GridView>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                          
                   
 

@@ -16,8 +16,8 @@ namespace MAdmin
         {
             theDiv.Visible = false;
         }
-
-        protected void btn_giris_Click(object sender, EventArgs e)
+        
+    protected void btn_giris_Click(object sender, EventArgs e)
         {
             
 

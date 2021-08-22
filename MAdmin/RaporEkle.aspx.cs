@@ -23,6 +23,34 @@ namespace MAdmin
             bgl.baglanti().Close();
         }
 
+        protected void raporbilgi()
+        {
+            SqlCommand komutD = new SqlCommand("select RaporNo from NKR where Rapor_Durumu <> 'Raporlandı' and Tarih > '2021'  order by RaporNo asc ", bgl.baglanti());
+            SqlDataReader drID = komutD.ExecuteReader();
+            while (drID.Read())
+            {
+                list_raporno.Items.Add(drID["RaporNo"].ToString());
+            }
+            bgl.baglanti().Close();
+
+            SqlCommand komutID = new SqlCommand("Select * from Firma", bgl.baglanti());
+            SqlDataReader drI = komutID.ExecuteReader();
+            while (drI.Read())
+            {
+                list_firma.Items.Add(drI["Firma_Adi"].ToString());
+            }
+            bgl.baglanti().Close();
+
+            SqlCommand komut = new SqlCommand("Select * from Firma where Tur=N'Proje' ", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                list_proje.Items.Add(dr["Firma_Adi"].ToString());
+            }
+            bgl.baglanti().Close();
+
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Kullanici"] == null)
@@ -34,24 +62,12 @@ namespace MAdmin
             {
                 Lbl_ad.Text = Session["Kullanici"].ToString();
                 Div1.Visible = false;
-
-                SqlCommand komutID = new SqlCommand("Select * from Firma", bgl.baglanti());
-                SqlDataReader drI = komutID.ExecuteReader();
-                while (drI.Read())
+                if (!IsPostBack)
                 {
-                    list_firma.Items.Add(drI["Firma_Adi"].ToString());
+                    raporbilgi();
+                    listele();
                 }
-                bgl.baglanti().Close();
-
-                SqlCommand komut = new SqlCommand("Select * from Firma where Tur=N'Proje' ", bgl.baglanti());
-                SqlDataReader dr = komut.ExecuteReader();
-                while (dr.Read())
-                {
-                    list_proje.Items.Add(dr["Firma_Adi"].ToString());
-                }
-                bgl.baglanti().Close();
-
-                listele();
+              
 
             }
         }
@@ -213,5 +229,69 @@ namespace MAdmin
 
         }
 
+        string grup;
+        protected void list_raporno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Select Grup from NKR where RaporNo=N'"+list_raporno.SelectedItem+"' ", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                grup = dr[0].ToString();
+            }
+            bgl.baglanti().Close();
+
+            if (grup == "Kozmetik" || grup == "Diğer")
+            {
+                SqlCommand komut1 = new SqlCommand("select n.RaporNo,  f.Firma_Adi as 'Firma', f2.Firma_Adi as 'Proje', n.Grup, n.Numune_Adi from NKR n " +
+                    " inner join NumuneDetay d on d.RaporID = n.ID inner join Firma f on f.ID = n.Firma_ID inner join Firma f2 on f2.ID = d.ProjeID " +
+                    " where RaporNo=N'" + list_raporno.SelectedItem + "' ", bgl.baglanti());
+                SqlDataReader dr1 = komut1.ExecuteReader();
+                while (dr1.Read())
+                {
+                    list_firma.SelectedValue = dr1["Firma"].ToString();
+                    string proje = dr1["Proje"].ToString();
+                    if (proje == "Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.")
+                    {
+                        list_proje.SelectedValue = "Diğer";
+                    }
+                    else
+                    {
+                        list_proje.SelectedValue = proje;
+                    }
+
+                    txt_tur.Text = dr1["Grup"].ToString();
+                    txt_ad.Text = dr1["Numune_Adi"].ToString();
+                    Txt_RaporNo.Text = dr1["RaporNo"].ToString();
+                }
+                bgl.baglanti().Close();
+            }
+            else
+            {
+                SqlCommand komut1 = new SqlCommand("select  n.RaporNo, f.Firma_Adi as 'Firma', f2.Firma_Adi as 'Proje', n.Tur, CONCAT(d.Marka,' ', d.Model) as Ad from NKR n " +
+                    " inner join NumuneDetay d on d.RaporID = n.ID inner join Firma f on f.ID = n.Firma_ID inner join Firma f2 on f2.ID = d.ProjeID " +
+                    " where RaporNo=N'" + list_raporno.SelectedItem + "' ", bgl.baglanti());
+                SqlDataReader dr1 = komut1.ExecuteReader();
+                while (dr1.Read())
+                {
+                    list_firma.SelectedValue = dr1["Firma"].ToString();
+                    string proje = dr1["Proje"].ToString();
+                    if (proje == "Mass Laboratuvar ve Danışmanlık Hizmetleri A.Ş.")
+                    {
+                        list_proje.SelectedValue = "Diğer";
+                    }
+                    else
+                    {
+                        list_proje.SelectedValue = proje;
+                    }
+
+                    txt_tur.Text = dr1["Tur"].ToString();
+                    txt_ad.Text = dr1["Ad"].ToString();
+                    Txt_RaporNo.Text = dr1["RaporNo"].ToString();
+                }
+                bgl.baglanti().Close();
+            }
+
+
+        }
     }
 }

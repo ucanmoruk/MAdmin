@@ -147,10 +147,10 @@
                                 <div class="card-body">
                                     
                                     <div class="input-group mb-3">
-<%--  <div class="input-group-prepend">
+  <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">Arama yapabilirsiniz..</span>
   </div>
-    <asp:TextBox ID="txtarama" class="form-control" placeholder="Firma Adı" runat="server" OnTextChanged="txtarama_TextChanged" /> --%>
+    <asp:TextBox ID="txtarama" class="form-control" placeholder="Firma Adı" runat="server" OnTextChanged="txtarama_TextChanged" /> 
 </div>
 
 <hr />
@@ -180,7 +180,7 @@
                                                  </asp:TemplateField>
                                                  <asp:TemplateField HeaderText="Numune Adı">
                                                      <ItemTemplate>
-                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("NumuneAd") %>'></asp:Literal>    
+                                                              <asp:Literal ID="Literal3" runat="server" Text='<%# Eval("NumuneAd") %>'></asp:Literal> 
                                                      </ItemTemplate>
                                                  </asp:TemplateField>                                                 
                                                  <asp:TemplateField HeaderText="Görüntüle">

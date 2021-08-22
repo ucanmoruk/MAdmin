@@ -17,10 +17,10 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>60722</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -86,9 +87,9 @@
     <Content Include="analiztalebi.aspx" />
     <Content Include="Recovery\404.html" />
     <Content Include="Recovery\Deneme.aspx" />
-    <Content Include="FirmaEkle.aspx" />
+    <Content Include="Recovery\FirmaEkle.aspx" />
     <Content Include="Giris.aspx" />
-    <Content Include="KayitOl.aspx" />
+    <Content Include="Recovery\KayitOl.aspx" />
     <Content Include="NumuneGonder.aspx" />
     <Content Include="Profil.aspx" />
     <Content Include="RaporEkle.aspx" />
@@ -151,6 +152,7 @@
     <Content Include=".travis.yml" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -228,7 +230,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Recovery\tables.html" />
-    <Content Include="TeklifEkle.aspx" />
+    <Content Include="Recovery\TeklifEkle.aspx" />
     <Content Include="Recovery\utilities-animation.html" />
     <Content Include="Recovery\utilities-border.html" />
     <Content Include="Recovery\utilities-color.html" />
@@ -1902,7 +1904,9 @@
     <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -2101,10 +2105,10 @@
     <Compile Include="analiztalebi.aspx.designer.cs">
       <DependentUpon>analiztalebi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AnalizTalep.cs">
+    <Compile Include="Recovery\AnalizTalep.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AnalizTalep.Designer.cs">
+    <Compile Include="Recovery\AnalizTalep.Designer.cs">
       <DependentUpon>AnalizTalep.cs</DependentUpon>
     </Compile>
     <Compile Include="Recovery\Deneme.aspx.cs">
@@ -2114,11 +2118,11 @@
     <Compile Include="Recovery\Deneme.aspx.designer.cs">
       <DependentUpon>Deneme.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FirmaEkle.aspx.cs">
+    <Compile Include="Recovery\FirmaEkle.aspx.cs">
       <DependentUpon>FirmaEkle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FirmaEkle.aspx.designer.cs">
+    <Compile Include="Recovery\FirmaEkle.aspx.designer.cs">
       <DependentUpon>FirmaEkle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Giris.aspx.cs">
@@ -2128,11 +2132,11 @@
     <Compile Include="Giris.aspx.designer.cs">
       <DependentUpon>Giris.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KayitOl.aspx.cs">
+    <Compile Include="Recovery\KayitOl.aspx.cs">
       <DependentUpon>KayitOl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KayitOl.aspx.designer.cs">
+    <Compile Include="Recovery\KayitOl.aspx.designer.cs">
       <DependentUpon>KayitOl.aspx</DependentUpon>
     </Compile>
     <Compile Include="NumuneGonder.aspx.cs">
@@ -2179,11 +2183,11 @@
       <DependentUpon>Anasayfa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TeklifEkle.aspx.cs">
+    <Compile Include="Recovery\TeklifEkle.aspx.cs">
       <DependentUpon>TeklifEkle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TeklifEkle.aspx.designer.cs">
+    <Compile Include="Recovery\TeklifEkle.aspx.designer.cs">
       <DependentUpon>TeklifEkle.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -2205,7 +2209,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AnalizTalep.resx">
+    <EmbeddedResource Include="Recovery\AnalizTalep.resx">
       <DependentUpon>AnalizTalep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
